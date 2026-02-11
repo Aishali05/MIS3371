@@ -7,7 +7,61 @@ Description: This file will help code to style the main patient HTML form.
 /*
 
 
-h1 {
-  color: red;
-  text-align: center;
+/* Body */
+body {
+    font-family: Verdana, sans-serif;
+    background-color: #e6f2ff; /* Not default white */
+    color: #333;
+}
+
+/* Header */
+#header {
+    text-align: center;
+    background-color: #3399ff;
+    color: white;
+    padding: 20px;
+}
+
+#logo {
+    width: 60px;
+    height: 60px;
+    background-color: #004080;
+    margin: 10px auto;
+}
+
+/* Form container */
+#form-container {
+    background-color: #ffffff;
+    padding: 15px;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    width: 90%;
+    max-width: 800px;
+}
+
+/* Table spacing */
+table td {
+    padding: 5px;
+}
+
+/* Inputs & textarea */
+input, select, textarea {
+    width: 95%;
+}
+
+/* Buttons */
+input[type=submit], input[type=reset], button {
+    background-color: #3399ff;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Footer */
+#footer {
+    text-align: center;
+    margin-top: 20px;
+    background-color: #ddd;
+    padding: 10px;
 }
