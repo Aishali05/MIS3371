@@ -35,7 +35,6 @@ Description: Patient Registration Form for hospitals
      <td> <label for="lname">Last Name:</label><br></td>
      <td> <input type="text" id="lname" name="lname" value="Doe" maxlength="30"><br><br></td>
 
-      </table>
       <!-- Date of Birth -->
       
       <label for="dob">Date of Birth:</label>
@@ -108,7 +107,7 @@ Description: Patient Registration Form for hospitals
                         </select>
                     </td>
                     <td><label for="zip">Zip:</label></td>
-                    <td><input type="text" id="zip" name="zip" maxlength="10"></td>
+                    <td><input type="text" id="zip" name="zip" maxlength="10"></td><br>
       </tr>
       
       
@@ -123,11 +122,23 @@ Description: Patient Registration Form for hospitals
            <td></td>
         
       </tr>
+
+      <!-- Passwords -->
+      <tr>
+         <td><label for="password">Password:</label></td>
+            <td><input type="password" id="password" name="password" maxlength="20"></td>
+            <td><label for="repassword">Re-enter Password:</label></td>
+             <td><input type="password" id="repassword" name="repassword" maxlength="20"></td>
+                    
+        <td></td>
+        <td></td>
+      
+      </tr>
       
       <input type="submit" value="Submit"
    
 
-      
+      </table>
       
     </form>
 
