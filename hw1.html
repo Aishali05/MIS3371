@@ -17,6 +17,17 @@ Description: Patient Registration Form for hospitals
 <h1>
   Cougar Care Medical
 </h1>
+
+ <!--- Date  -->
+
+<script>
+
+  document.getElementById("date").innerHTML = 
+  "Today's Date: " + new Date().toLocaleDateString();
+
+</script>
+    
+
 <link href="style.css" rel="stylesheet">
   
 
@@ -24,16 +35,20 @@ Description: Patient Registration Form for hospitals
 
       <!-- Name -->
      <table> 
-      <tr>
-      
-     <td> <label for="fname">First Name:</label><br> </td>
-     <td> <input type="text" id="fname" name="fname" value="John" maxlength="30"></td>
 
-     <td> <label for="mname">Middle Initial:</label></td>
-     <td> <input type="text" id="mname" name="mname" value="D" maxlength="1"><br></td>
+    <tr>  
+     <td>
+      <label for="fname">First Name:</label><br> 
+      <input type="text" id="fname" name="fname" value="John" maxlength="30">
+
+      <label for="mname">Middle Initial:</label>
+      <input type="text" id="mname" name="mname" value="D" maxlength="1"><br>
       
-     <td> <label for="lname">Last Name:</label><br></td>
-     <td> <input type="text" id="lname" name="lname" value="Doe" maxlength="30"><br><br></td>
+      <label for="lname">Last Name:</label><br>
+      <input type="text" id="lname" name="lname" value="Doe" maxlength="30"><br><br>
+    </td>
+    </tr>
+      
 
       <!-- Date of Birth -->
       
@@ -44,13 +59,14 @@ Description: Patient Registration Form for hospitals
 
       <tr>
 
-        <td><label for=address>Address:</label></td>
-          <td><input type="text" id="address" name="address" maxlength="30"></td>
+        <td>
+          <label for=address>Address:</label>
+          <td><input type="text" id="address" name="address" maxlength="30">
 
-        <td><label for="city">City:</label></td>
-         <td><input type="text" id="city" name="city" maxlength="30"></td>
-                    <td><label for="state">State:</label></td>
-                    <td>
+          <label for="city">City:</label>
+          <input type="text" id="city" name="city" maxlength="30">
+                    <label for="state">State:</label>
+                    
                         <select id="state" name="state">
                             <option value="">Select</option>
                             <option value="AL">Alabama</option>
@@ -105,54 +121,120 @@ Description: Patient Registration Form for hospitals
                             <option value="WY">Wyoming</option>
   
                         </select>
-                    </td>
-                    <td><label for="zip">Zip:</label></td>
-                    <td><input type="text" id="zip" name="zip" maxlength="10"></td><br><br>
+                    
+                    <label for="zip">Zip:</label>
+                    <input type="text" id="zip" name="zip" maxlength="10"><<br><br>
+        </td>
       </tr>
       
 
       <!-- Phone Number -->
       <tr>
-          <td><label for="phone">Phone Number:</label></td>
-            <td><input type="text" id="phone" name="phone" maxlength="12"></td>
-
-
-
-        
+          <td>
+            <label for="phone">Phone Number:</label></td>
+            <input type="text" id="phone" name="phone" maxlength="12">
+    
+          </td>   
       </tr>
       
       <!-- Email and User ID -->
       <tr>
-          <td><label for="email">Email:</label></td>
-            <td><input type="email" id="email" name="email"></td>
+          <td>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
           
-          <td><label for="userid">User ID:</label></td>
-             <td><input type="text" id="userid" name="userid" maxlength="20"></td><br><br>
-          
+          <label for="userid">User ID:</label>
+          <input type="text" id="userid" name="userid" maxlength="20"><br><br>
+         </td>  
       </tr>
 
       <!-- Passwords -->
       <tr>
-         <td><label for="password">Password:</label></td>
-            <td><input type="password" id="password" name="password" maxlength="20"></td><br>
-            <td><label for="repassword">Re-enter Password:</label></td>
-             <td><input type="password" id="repassword" name="repassword" maxlength="20"></td><br><br>
+         <td>
+           <label for="password">Password:</label>
+           <input type="password" id="password" name="password" maxlength="20"><br>
+           <label for="repassword">Re-enter Password:</label>
+           <input type="password" id="repassword" name="repassword" maxlength="20"><br><br>
                     
        
-      
+        </td>
       </tr>
 
+      <!-- Symptoms -->
       <tr>
-          <td>
+          <td colspan="5">
             Symptoms:
-              colspan="5"
+            
             <textarea rows="3" cols="50"> </textarea>
-
-
             
           </td>
           
       </tr>
+
+      <tr>
+        <td>
+          <input type="checkbox"> Flu
+          <input type="checkbox"> Covid
+          <input type="checkbox"> Measles
+          <input type="checkbox"> Chicken Pox
+          <input type="checkbox"> Tetanus
+          
+        </td>
+      </tr>
+
+    <!-- Gender -->
+      <tr>
+        <td>
+          Gender:
+          
+          <input type="radio" name="gender"> Male
+          
+          <input type="radio" name="gender"> Female
+          
+          <input type="radio" name="gender"> Other
+          
+        </td>
+      </tr>
+
+    <!-- Vaccinted -->
+      
+      <tr>
+        <td>
+          
+          <input type="radio" name="vaccinated" value="yes"> Yes
+         
+          <input type="radio" name="vaccinated" value="no"> No
+          
+        </td>
+      </tr>
+
+
+      <!-- Insurance -->
+
+      <tr>
+        <td>
+          <p> Do you have insurance? </p>
+            
+            <input type="radio" name="insurance" value="yes"> Yes
+            
+            <input type="radio" name="insurance" value="no"> No
+
+        </td>
+      </tr>
+
+
+      <!-- Health Rating -->
+
+      <tr>
+        <td>
+          <p>Health Rating (1-10)</p>
+
+            <input type="range" name="health" min="1" max="10">
+          
+        </td>
+      </tr>
+
+    <!--Submit -->
       
       <input type="submit" value="Submit"
    
@@ -160,6 +242,17 @@ Description: Patient Registration Form for hospitals
       </table>
       
     </form>
+
+  </div>
+
+  <!------------ Footer ---------------->
+
+<div id="bottom">      
+    
+    <p>Cougar Care Medical</p>
+    <p>PO BOX 18881, Sugar Land TX 77496</p>
+
+</div>
   
   
   </body>
