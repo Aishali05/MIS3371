@@ -1,99 +1,82 @@
-/* 
+/*
 Program name: style.css
-Author: Aish Ali
+Author: Your Name Here
 Date created: 02/10/2026
-Date last edited: 02/11/2026
+Date last edited: 02/10/2026
 Version: 1.0
-Description: Basic UH-colored styling for patient registration form
+Description: Styles for patient-form.html including fonts, colors, and layout.
 */
 
-/* Body */
-
-/* Body */
+/* General Body */
 body {
-    font-family: Arial, sans-serif;
-    background-color: rgb(240, 240, 240);
-    margin: 0;
+    font-family: "Arial", sans-serif;
+    background-color: #f2f2f2;
+    color: #333333;
+    margin: 20px;
 }
 
-/* Header */
-HEADER */
-h1 {
-  background-color: #c8102e; 
-  color: white;
-  text-align: center;
-  padding: 20px;
-
-    
-/* Form */
-form {
-  background-color: white;
-  padding: 20px;
-  margin: 20px auto;
-  border: 1px solid #808080; /* gray border */
-  border-radius: 5px;
-  max-width: 700px;
+/* Header / Banner */
+#header {
+    text-align: center;
+    background-color: #0066cc;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
 }
+
+/* Logo Placeholder */
+#logo {
+    border-radius: 50%;
+}
+
+/* Main Form */
+#mainForm {
+    background-color: white;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #aaa;
+}
+
+/* Table styling */
 table {
-  width: 100%;
-  border-collapse: collapse;
+    width: 100%;
+    border-collapse: collapse;
 }
 
 td {
-  padding: 8px;
-  vertical-align: middle;
+    padding: 10px;
+    vertical-align: top;
 }
 
-/* LABELS */
-label {
-  display: inline-block;
-  width: 140px; /* aligns all labels */
-  font-weight: bold;
+/* Inputs */
+input[type="text"], input[type="password"], input[type="email"], select, textarea {
+    width: 95%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
-/* INPUTS AND SELECTS */
-input[type=text],
-input[type=email],
-input[type=password],
-input[type=date],
-select,
-textarea {
-  width: 200px; /* default professional size */
-  padding: 5px;
-  border: 1px solid #808080;
-  border-radius: 3px;
+/* Buttons */
+input[type="submit"], input[type="reset"], button {
+    background-color: #0066cc;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-/* TEXTAREA */
-textarea {
-  width: 100%;
-  height: 80px;
+input[type="submit"]:hover, input[type="reset"]:hover, button:hover {
+    background-color: #004c99;
 }
 
-/* BUTTONS */
-input[type=submit],
-input[type=reset] {
-  background-color: #c8102e; /* UH red */
-  color: white;
-  padding: 8px 15px;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-input[type=submit]:hover,
-input[type=reset]:hover {
-  background-color: #a50b22; /* darker red */
-}
-
-/* FOOTER */
+/* Footer */
 #footer {
-  text-align: center;
-  background-color: #808080; /* gray */
-  color: white;
-  padding: 15px;
-  margin-top: 20px;
+    text-align: center;
+    margin-top: 40px;
+    padding: 10px;
+    background-color: #ccc;
+    border-radius: 10px;
 }
-
-  
