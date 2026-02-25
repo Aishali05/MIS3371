@@ -128,6 +128,7 @@ Description: Patient Registration Form for hospitals
                             <option value="WI">Wisconsin</option>
                             <option value="WY">Wyoming</option>
                     </select>
+                <br>
 
                 <label for="zip">Zip:</label>
                 <input type="text" id="zip" name="zip" maxlength="10">
@@ -143,59 +144,58 @@ Description: Patient Registration Form for hospitals
 </tr>
 
 <!-- Email + User ID -->
-<tr>
-<td>
-<label>Email:</label>
-<input type="email">
-
-<label>User ID:</label>
-<input type="text" maxlength="20">
-</td>
-</tr>
+        <tr>
+            <td>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                <label for="userid">User ID:</label>
+                <input type="text" id="userid" name="userid" maxlength="20">
+            </td>
+        </tr>
 
 <!-- Password -->
-<tr>
-<td>
-<label>Password:</label>
-<input type="password">
-
-<label>Re-enter Password:</label>
-<input type="password">
-</td>
-</tr>
+        <tr>
+            <td>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" maxlength="20">
+                
+                <label for="password2">Re-enter Password:</label>
+                <input type="password" id="password2" name="password2" maxlength="20">
+            </td>
+        </tr>
 
 <!-- Symptoms -->
-<tr>
-<td>
-<label>Symptoms:</label><br>
-<textarea rows="3"></textarea>
-</td>
-</tr>
+        <tr>
+            <td>
+                <label for="symptoms">Describe Symptoms:</label>
+                <textarea id="symptoms" name="symptoms" rows="3" cols="50"></textarea>
+            </td>
+        </tr>
 
 <!-- Medical History -->
-<tr>
-<td>
-<label>Medical History:</label>
-<input type="checkbox"> Flu
-<input type="checkbox"> Covid
-<input type="checkbox"> Measles
-<input type="checkbox"> Chicken Pox
-<input type="checkbox"> Tetanus
-</td>
-</tr>
+        <tr>
+            <td>
+                <label>Medical History:</label>
+                    <input type="checkbox" name="disease" value="chickenpox"> Chicken Pox<br>
+                    <input type="checkbox" name="disease" value="measles"> Measles<br>
+                    <input type="checkbox" name="disease" value="covid19"> Covid-19<br>
+                    <input type="checkbox" name="disease" value="smallpox"> Small Pox<br>
+                    <input type="checkbox" name="disease" value="tetanus"> Tetanus<br>
+            </td>
+        </tr>
 
 <!-- Gender -->
-<tr>
-<td>
-<label>Gender:</label>
-<input type="radio" name="gender"> Male
-<input type="radio" name="gender"> Female
-<input type="radio" name="gender"> Other
-</td>
-</tr>
+        <tr>
+            <td>
+                Gender:
+                    <input type="radio" name="gender" value="male"> Male
+                    <input type="radio" name="gender" value="female"> Female
+                    <input type="radio" name="gender" value="other"> Other
+            </td>    
+        </tr>
 
 <!-- Vaccinated -->
-<tr>
+        <tr>
 <td>
 <label>Are you vaccinated?</label>
 <input type="radio" name="vaccinated"> Yes
