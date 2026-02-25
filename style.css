@@ -42,6 +42,56 @@ table {
   width: 100%;
 }
 
+tr {
+    height: 50px;
+}
+
+
+label {
+    font-weight: bold;
+
+}
+
+/*  Text  */
+
+textarea {
+    width: 95%;
+    padding: 8px;
+}
+
+/* Radio and Checkbox */
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-left: 10px;
+}
+
+
+/* Submit and Reset */
+
+input[type="submit"],
+input[type="reset"] {
+    background-color: rgb(200, 16, 46);
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 8px 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+input[type="submit"]: hover,
+input[type="reset"]: hover {
+    background-color: rgb(160, 10, 35);
+}
+
+/* Footer */
+
+footer {
+    background-color: rgb(50, 50, 50);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
 
 
 
