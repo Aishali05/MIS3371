@@ -26,7 +26,7 @@ body {
 form {
     background-color: rgb(255, 255, 255);
     width: 900px;
-    margin: 30px auto; 
+    margin: 30px auto;   /* THIS centers it */
     padding: 25px;
     border-radius: 8px;
 }
@@ -81,5 +81,4 @@ input[type="reset"]:hover {
     text-align: center;
     padding: 20px;
     margin-top: 40px;
-}
 }
