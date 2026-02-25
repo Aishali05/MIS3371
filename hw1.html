@@ -196,46 +196,53 @@ Description: Patient Registration Form for hospitals
 
 <!-- Vaccinated -->
         <tr>
-<td>
-<label>Are you vaccinated?</label>
-<input type="radio" name="vaccinated"> Yes
-<input type="radio" name="vaccinated"> No
-</td>
-</tr>
+            <td>
+                    Are you vaccinated?
+                    <input type="radio" name="vaccinated" value="yes"> Yes
+                    <input type="radio" name="vaccinated" value="no"> No
+            </td>
+        </tr>
 
 <!-- Insurance -->
-<tr>
-<td>
-<label>Do you have insurance?</label>
-<input type="radio" name="insurance"> Yes
-<input type="radio" name="insurance"> No
-</td>
-</tr>
+        <tr>
+            <td>
+                Do you have insurance?
+                <input type="radio" name="insurance" value="yes"> Yes
+                <input type="radio" name="insurance" value="no"> No
+            </td>
+        </tr>
 
 <!-- Health Rating -->
-<tr>
-<td>
-<label>Health Rating (1-10)</label><br>
-<input type="range" min="1" max="10">
-</td>
-</tr>
+        <tr>
+            <td>
+                Health Rating (1-10)<br>
+                <input type="range" id="healthScale" name="healthScale" min="1" max="10">
+            </td>
+        </tr>
 
 <!-- Buttons -->
-<tr>
-<td style="text-align:center;">
-<input type="reset" value="Clear">
-<input type="submit" value="Submit">
-</td>
-</tr>
+        <tr>
+            <td style="text-align:center;">
+                
+                <input type="reset" value="Clear">
+                <input type="submit" value="Submit">
+            </td>
+        </tr>
 
-</table>
+    </table>
+
+        
 </form>
 
 <!-- FOOTER -->
 <div id="bottom">
-<p>Cougar Care Medical</p>
-<p>PO BOX 18881, Sugar Land TX 77496</p>
+        
+    <p>Cougar Care Medical</p>
+    <p>PO BOX 18881, Sugar Land TX 77496</p>
+
 </div>
 
-</body>
+    </body>
+
+    
 </html>
