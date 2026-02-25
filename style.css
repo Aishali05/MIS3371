@@ -9,66 +9,58 @@ Description: Basic UH-colored styling for patient registration form
 
 /* Body */
 
+/* Body */
 body {
     font-family: Arial, sans-serif;
     background-color: rgb(240, 240, 240);
-    margin:0;
-
+    margin: 0;
 }
 
 /* Header */
-
-header {
-  margin: 0;
-  font-weight: bold;
-
+#top {
+    background-color: rgb(200, 16, 46);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 20px;
 }
-
 
 /* Form */
-
-form  {
-  background-color: rgb(255, 255, 255);
-  width: 900px;
-  margin: 30px;
-  padding: 25px;
-  border-radius: 8px;
-
+form {
+    background-color: rgb(255, 255, 255);
+    width: 900px;
+    margin: 30px auto;   /* THIS centers it */
+    padding: 25px;
+    border-radius: 8px;
 }
 
-/* table */
-
+/* Table */
 table {
-  width: 100%;
+    width: 100%;
 }
 
 tr {
     height: 50px;
 }
 
-
+/* Labels */
 label {
     font-weight: bold;
-
+    margin-right: 5px;
 }
 
-/*  Text  */
-
+/* Textarea */
 textarea {
     width: 95%;
     padding: 8px;
 }
 
 /* Radio and Checkbox */
-
 input[type="radio"],
 input[type="checkbox"] {
     margin-left: 10px;
 }
 
-
-/* Submit and Reset */
-
+/* Buttons */
 input[type="submit"],
 input[type="reset"] {
     background-color: rgb(200, 16, 46);
@@ -79,22 +71,19 @@ input[type="reset"] {
     cursor: pointer;
 }
 
-input[type="submit"]: hover,
-input[type="reset"]: hover {
+input[type="submit"]:hover,
+input[type="reset"]:hover {
     background-color: rgb(160, 10, 35);
 }
 
 /* Footer */
-
-footer {
+#bottom {
     background-color: rgb(50, 50, 50);
     color: rgb(255, 255, 255);
     text-align: center;
     padding: 20px;
     margin-top: 40px;
-
-
-
+}
 
 
 
