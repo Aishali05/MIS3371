@@ -17,9 +17,10 @@ body {
 }
 
 /* Header */
-#top {
-    background-color: rgb(200, 16, 46);
-    color: rgb(255, 255, 255);
+h1 {
+  
+    background-color: #c8102e;
+    color: white; 
     text-align: center;
     padding: 20px;
 }
