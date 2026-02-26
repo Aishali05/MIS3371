@@ -15,7 +15,7 @@ body {
 }
 
 /* Header */
-header {
+top {
     background-color: rgb(200, 16, 46);
     color: rgb(255, 255, 255);
     text-align: center;
@@ -82,7 +82,7 @@ input[type="reset"]:hover {
 }
 
 /* Footer */
-footer {
+bottom {
     background-color: rgb(50, 50, 50);
     color: rgb(255, 255, 255);
     text-align: center;
