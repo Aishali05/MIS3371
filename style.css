@@ -22,6 +22,11 @@ body {
     padding: 20px;
 }
 
+#logo {
+    height: 60px; 
+    vertical-align: left;
+}
+
 /* Form */
 form {
     background-color: rgb(255, 255, 255);
