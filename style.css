@@ -23,9 +23,9 @@ body {
 }
 
 #logo {
-    height: 5px; 
+    height: 25px; 
     vertical-align: left;
-    horizontal-align: left;
+    float: left;
 }
 
 /* Form */
