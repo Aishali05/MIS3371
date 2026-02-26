@@ -15,15 +15,15 @@ body {
 }
 
 /* Header */
-#top {
+header {
     background-color: rgb(200, 16, 46);
     color: rgb(255, 255, 255);
     text-align: center;
     padding: 20px;
 }
 
-#logo {
-    height: 25px; 
+logo {
+    height: 50px; 
     vertical-align: left;
     float: left;
 }
@@ -80,7 +80,7 @@ input[type="reset"]:hover {
 }
 
 /* Footer */
-#bottom {
+footer {
     background-color: rgb(50, 50, 50);
     color: rgb(255, 255, 255);
     text-align: center;
