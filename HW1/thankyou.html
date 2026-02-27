@@ -1,19 +1,58 @@
-<!DOCTYPE html>
-  <html>
-    <head>
-      <title>Thank You</title>
-        
-      <link rel="stylesheet" href="style.css">
-    </head>
-  <body>
+<!--Program Name: Thank You Submission
+Author: Aish Ali
+Date Created: 02/10/2026
+Date Last Edited: 02/10/2026
+Version: 1.0
+Description: Thank you for submitting
+-->
 
-<div class="banner">
-    <h1>Cougar Care Medical</h1>
+<!DOCTYPE html>
+    <html>
+        <head>
+
+            <title>Thank You</title>
+            <link href="style.css" rel="stylesheet">
+<!-- Date -->
+    <script>
+        window.onload = function() {
+            var today = new Date();
+            var month = today.getMonth() + 1;
+            var day = today.getDate();
+            var year = today.getFullYear();
+            document.getElementById("todaydate").innerHTML =
+            "Today's Date: " + month + "/" + day + "/" + year;
+}
+    </script>
+
+</head>
+  <body>
+        <!-- HEADER -->
+        
+        <div id="header">
+            <img src="Cougar Image.png" alt="Logo" id="logo">
+            <h1>Cougar Care Medical</h1>
+             <p id="todaydate"></p>
+        
+        </div>
+    
+<!-- Thank You -->
+    
+    <h2>Thank you for your submission.</h2>
+  
+<!-- FOOTER -->
+<div id="footer">
+        
+    <p>Cougar Care Medical</p>
+    <p>PO BOX 18881, Sugar Land, TX 77496</p>
+    
+    <a href="medical@cougarcare.com">
+        <button>Contact Us</button>
+</a>
 
 </div>
 
-    <h2>Thank you for your submission.</h2>
-  
-  </body>
+    </body>
+
     
 </html>
+
