@@ -35,6 +35,11 @@ form {
     padding: 25px;
     border-radius: 8px;
 }
+.line {
+    display: inline-block;
+    width: 150px; 
+    font-weight: bold;
+
 
 /* Table */
 table {
