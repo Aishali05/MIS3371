@@ -93,16 +93,3 @@ input[type="reset"]:hover {
     margin-top: 40px;
 
 }
-
-#footer button {
-    background-color: rgb(200,16,46);
-    color: rgb(255,255,255);
-    border: none;
-    padding: 8px 15px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-#footer button:hover {
-    background-color: rgb(160,10,35);
-}
