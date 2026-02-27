@@ -22,11 +22,6 @@ body {
     padding: 20px;
 }
 
-#header h1{
-    margin:0;
-    text-align: center;
-}
-
 #logo {
     height: 100px; 
     align: left;
