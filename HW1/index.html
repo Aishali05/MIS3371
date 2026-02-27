@@ -13,28 +13,24 @@ Description: Patient Registration Form for hospitals
             <title>Medical Patient Form</title>
             <link href="style.css" rel="stylesheet">
 
-    <script>
-        window.onload = function() {
-            var today = new Date();
-            var month = today.getMonth() + 1;
-            var day = today.getDate();
-            var year = today.getFullYear();
-            document.getElementById("todaydate").innerHTML =
-            "Today's Date: " + month + "/" + day + "/" + year;
-}
-    </script>
+        </head>
 
-</head>
-
-    <body>
+            <body>
 
         <!-- HEADER -->
         
         <div id="header">
             <img src="Cougar Image.png" alt="Logo" id="logo">
             <h1>Cougar Care Medical</h1>
-             <p id="todaydate"></p>
+         
+        <!-- Date -->
+             <p>Today's Date: <span id="today"></span></p>
         
+            <script>
+                var today = new Date();
+                document.getElementById("today").innerHTML = today.toDateString();
+            </script>
+
         </div>
 
 <!-- FORM -->
