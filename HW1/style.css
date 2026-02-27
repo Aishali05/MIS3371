@@ -84,6 +84,12 @@ input[type="reset"]:hover {
     background-color: rgb(160, 10, 35);
 }
 
+/*Thank You Page */
+
+.submission {
+    text-align: center;
+}
+
 /* Footer */
 #footer {
     background-color: rgb(50, 50, 50);
