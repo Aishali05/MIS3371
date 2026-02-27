@@ -13,17 +13,16 @@ Description: Thank you for submitting
             <title>Thank You</title>
             <link href="style.css" rel="stylesheet">
 <!-- Date -->
+   <p>Today's Date: <span id="today"></span></p>
+    
     <script>
-        window.onload = function() {
-            var today = new Date();
-            var month = today.getMonth() + 1;
-            var day = today.getDate();
-            var year = today.getFullYear();
-            document.getElementById("todaydate").innerHTML =
-            "Today's Date: " + month + "/" + day + "/" + year;
-}
+        var today = new Date();
+        document.getElementById("today").innerHTML = today.toDateString();
     </script>
 
+
+
+            
 </head>
   <body>
         <!-- HEADER -->
