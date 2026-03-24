@@ -43,5 +43,5 @@ function checkPasswords() {
 
 
 function showValue(val) {
-    document.getElementById("sliderValue").innerHTML = val;
+    document.getElementById("slider").innerHTML = val;
 }
