@@ -27,3 +27,21 @@ function reviewForm()  {
   
     document.getElementById("reviewSection").style.display = "block";
 }
+
+
+function checkPasswords() {
+    var p1 = document.getElementById("password").value;
+    var p2 = document.getElementById("password2").value;
+
+    if (p1 !== p2) {
+        alert("Passwords do not match");
+        return false;
+    }
+    return true;
+}
+
+
+
+function showValue(val) {
+    document.getElementById("sliderValue").innerHTML = val;
+}
