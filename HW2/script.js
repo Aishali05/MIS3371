@@ -14,13 +14,13 @@ function reviewForm()  {
     var output = "";
 
 
-    output +=  "Name:  "  +  fname + " " + lanme  + "<br>";
+    output += "Name: " + fname + " " + lanme  + "<br>";
 
-    output +=  "Date of Birth:  "  +  dob +  "<br>";
+    output += "Date of Birth: " +  dob +  "<br>";
 
-    output +=  "Email:  "  +  email + "<br>";
+    output += "Email: " +  email + "<br>";
 
-    output +=  "User ID:  "  +  userid + "<br>";
+    output += "User ID: " +  userid + "<br>";
 
 
     document.getElementById("reviewOutput").innerHTML = output;
