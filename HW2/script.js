@@ -84,7 +84,7 @@ function reviewForm() {
     var output = "PLEASE REVIEW THIS INFORMATION";
 
      if (errorMessage != "") {
-        output += "<span style='color:red;'><strong>Errors:</strong><br>" + errorMessage + "</span><br>";
+        output += "<span style='color:red;'><br>" + errorMessage + "</span><br>";
     }
     output += "Name: " + fname + " " + mname + " " + lname + "<br>";
     output += "DOB: " + dob + "<br>";
