@@ -156,9 +156,9 @@ Description: Patient Registration Form for hospitals
         <tr>
             <td>
             <label class="line">Phone Number:</label>
-            <input type="text" maxlength="12" placeholder="123-456-7890"
+            <input type="text" name="phone" maxlength="10" placeholder="1234567890"
                 pattern="^\d{3}\d{3}\d{4}$"
-                title="Phone's format must be 123-456-7890">
+                title="Phone's format must be 10 digits">
             <br><br>
             </td>
         </tr>
@@ -179,12 +179,12 @@ Description: Patient Registration Form for hospitals
 <!-- Password -->
         <tr>
             <td>
-                <label label class="line" for="password">Password:</label>
+                <label class="line" for="password">Password:</label>
                 <input type="password" id="password" name="password" maxlength="20"
                     pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+\\\/><.,`~]).{8,30}$"
                     title="8-30 chars, 1 uppercase, 1 lowercase, 1 number, 1 special char"><br><br>
                 
-                <label label class="line" for="password2">Re-enter Password:</label>
+                <label class="line" for="password2">Re-enter Password:</label>
                 <input type="password" id="password2" name="password2" maxlength="20">
                 <br><br>
             </td>
