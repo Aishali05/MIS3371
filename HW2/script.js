@@ -7,7 +7,6 @@ function reviewForm() {
     var lname = document.getElementsByName("lname") [0].value;
     var dob = document.getElementsByName("dob") [0].value;
     var email = document.getElementsByName("email") [0].value;
-    var dob = document.getElementsByName("dob") [0].value;
     var phone = document.getElementsByName("phone") [0].value;
     var address1 = document.getElementsByName("address1") [0].value;
     var address2 = document.getElementsByName("address2") [0].value;
@@ -17,7 +16,7 @@ function reviewForm() {
     var userid = document.getElementsByName("userid") [0].value;
     var password = document.getElementsByName("password") [0].value;
     var password2 = document.getElementsByName("password2") [0].value;
-    var symtoms = document.getElementsByName("symptoms") [0].value;
+    var symptoms = document.getElementsByName("symptoms") [0].value;
     var healthscale = document.getElementsByName("healthScale") [0].value;
 
     //Radio Buttons
@@ -62,19 +61,14 @@ function reviewForm() {
 
     // PASSWORD VALIDATION
     userid = userid.toLowerCase(); // display lowercase
-    var passErrors = validatePassword(pass1, pass2, userid);
+    var passErrors = validatePassword(password, password2, userid);
     if (passErrors != "") errorMessage += passErrors;
     
     if (errorMessage != "") {
-        document.getElementById("reviewOutput").innerHTML = "<b>Errors:</b><br>" + errorMessage;
+        document.getElementById("reviewOutput").innerHTML = "Errors:<br>" + errorMessage;
         return;  }
 
-    
 
-    // DISPLAY ERRORS OR DATA
-    if (errorMessage != "") {
-        document.getElementById("reviewOutput").innerHTML = errorMessage;
-        return;
     }
 
     //dob
@@ -103,11 +97,11 @@ function reviewForm() {
     output += "Gender: " + gender + "<br>";
     output += "Vaccinated: " + vaccinated + "<br>";
     output += "Insurance: " + insurance + "<br>";
-    output += "Health Rating: " + health + "<br>";
+    output += "Health Rating: " + healthscale + "<br>";
     output += "Medical History: " + (diseaseList.length > 0 ? diseaseList.join(", ") : "None") + "<br>";
     output += "Symptoms: " + symptoms + "<br>";
     output += "User ID: " + userid + "<br>";
-    output += "Password: " + pass1 + "<br>";
+    output += "Password: " + password + "<br>";
 
 
     document.getElementById("reviewOutput").innerHTML = output;
