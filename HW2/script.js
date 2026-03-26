@@ -2,29 +2,74 @@
 function reviewForm() {
 
     // GET VALUES
-    var fname = document.getElementsByName("fname")[0].value;
-    var lname = document.getElementsByName("lname")[0].value;
-    var dob = document.getElementsByName("dob")[0].value;
-    var email = document.getElementsByName("email")[0].value;
+    var fname = document.getElementsByName("fname") [0].value;
+    var mname = document.getElementsByName("mname") [0].value;
+    var lname = document.getElementsByName("lname") [0].value;
+    var dob = document.getElementsByName("dob") [0].value;
+    var email = document.getElementsByName("email") [0].value;
+    var dob = document.getElementsByName("dob") [0].value;
+    var phone = document.getElementsByName("phone") [0].value;
+    var address1 = document.getElementsByName("address1") [0].value;
+    var address2 = document.getElementsByName("address2") [0].value;
+    var city = document.getElementsByName("city") [0].value;
+    var state = document.getElementsByName("state") [0].value;
+    var zip = document.getElementsByName("zip") [0].value;
+    var userid = document.getElementsByName("userid") [0].value;
+    var password = document.getElementsByName("password") [0].value;
+    var password2 = document.getElementsByName("password2") [0].value;
+    var symtoms = document.getElementsByName("symptoms") [0].value;
+    var healthscale = document.getElementsByName("healthScale") [0].value;
 
-    // SIMPLE CHECKS
+    //Radio Buttons
+    var gender = "";
+    var genderOptions = document.getElementsByName("gender");
+    for (var i = 0; i < genderOptions.length; i++) {
+        if (genderOptions[i].checked) gender = genderOptions[i].value; }
+    
+    var vaccinated = "";
+    var vaccinatedOptions = document.getElementsByName("vaccinated");
+    for (var i = 0; i < vaccinatedOptions.length; i++) {
+        if (vaccinatedOptions[i].checked) vaccinated = vaccinatedOptions[i].value; }
+
+    var insurance = "";
+    var insuranceOptions = document.getElementsByName("insurance");
+    for (var i = 0; i < insuranceOptions.length; i++) {
+        if (insuranceOptions[i].checked) insurance = insuranceOptions[i].value; }
+
+
+    //Checkboxes
+    var diseases = document.getElementsByName("disease");
+    var diseaseList = [];
+    for (var i = 0; i < diseases.length; i++) {
+        if (diseases[i].checked) diseaseList.push(diseases[i].value);  } 
+   
+    
+    //Error Message
     var errorMessage = "";
 
-    if (fname == "") {
-        errorMessage += "First name is required <br>";
-    }
+    if (fname == "") {errorMessage += "First name is required <br>";   }
 
-    if (lname == "") {
-        errorMessage += "Last name is required <br>";
-    }
+    if (lname == "") {errorMessage += "Last name is required <br>"; }
 
-    if (dob == "") {
-        errorMessage += "Date of birth is required <br>";
-    }
+    if (dob == "") {errorMessage += "Date of birth is required <br>";  }
 
-    if (email == "" || email.indexOf("@") == -1) {
-        errorMessage += "Invalid email <br>";
-    }
+    if (email == "" || email.indexOf("@") == -1) {errorMessage += "Invalid email <br>";   }
+
+    if (!/^\d{3}\d{3}\d{4}$/.test(phone)) errorMessage += "Phone must be 000-000-0000<br>";
+   
+    if (!/^\d{5}(\d{4})?$/.test(zip)) errorMessage += "Zip must be 5 digits or 5+4<br>";
+
+
+    // PASSWORD VALIDATION
+    userid = userid.toLowerCase(); // display lowercase
+    var passErrors = validatePassword(pass1, pass2, userid);
+    if (passErrors != "") errorMessage += passErrors;
+    
+    if (errorMessage != "") {
+        document.getElementById("reviewOutput").innerHTML = "<b>Errors:</b><br>" + errorMessage;
+        return;  }
+
+    
 
     // DISPLAY ERRORS OR DATA
     if (errorMessage != "") {
@@ -32,22 +77,46 @@ function reviewForm() {
         return;
     }
 
-    // DISPLAY INFO
-    var output = "";
-    output += "First Name: " + fname + "<br>";
-    output += "Last Name: " + lname + "<br>";
+    //dob
+    var today = new Date();
+    var yyyy = today.getFullYear();
+    var mm = String(today.getMonth()+1).padStart(2,'0');
+    var dd = String(today.getDate()).padStart(2,'0');
+   
+    var maxDate = yyyy + '-' + mm + '-' + dd;
+    var minDate = (yyyy-120) + '-' + mm + '-' + dd;
+
+    document.getElementsByName("dob")[0].setAttribute("max", maxDate);
+    document.getElementsByName("dob")[0].setAttribute("min", minDate);
+    
+    // Output
+
+    var output = "PLEASE REVIEW THIS INFORMATION";
+    output += "Name: " + fname + " " + mname + " " + lname + "<br>";
     output += "DOB: " + dob + "<br>";
     output += "Email: " + email + "<br>";
+    output += "Phone: " + phone + "<br>";
+    output += "Address: " + address1;
+        if (address2 != "") output += ", " + address2;
+    
+    output += "<br>" + city + ", " + state + " " + zip + "<br>";
+    output += "Gender: " + gender + "<br>";
+    output += "Vaccinated: " + vaccinated + "<br>";
+    output += "Insurance: " + insurance + "<br>";
+    output += "Health Rating: " + health + "<br>";
+    output += "Medical History: " + (diseaseList.length > 0 ? diseaseList.join(", ") : "None") + "<br>";
+    output += "Symptoms: " + symptoms + "<br>";
+    output += "User ID: " + userid + "<br>";
+    output += "Password: " + pass1 + "<br>";
+
 
     document.getElementById("reviewOutput").innerHTML = output;
 }
 
-function checkPassword() {
 
-    var pass1 = document.getElementById("password").value;
-    var pass2 = document.getElementById("password2").value;
-
-    if (pass1 != pass2) {
-        alert("Passwords do not match");
-    }
+//Slider Value
+function updateSlider(val) {
+    document.getElementById("sliderValue").innerText = val;
 }
+
+
