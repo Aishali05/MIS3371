@@ -34,7 +34,7 @@ Description: Patient Registration Form for hospitals
         </div>
 
 <!-- FORM -->
-    <form action="thankyou.html" onsubmit="return checkPasswords()">
+    <form action="thankyou.html" onsubmit="return checkPassword()">
 
     <table>
 
@@ -47,7 +47,9 @@ Description: Patient Registration Form for hospitals
                     title="Letters, apostrophes, and dashes only">
                     
                 <label>Middle Initial:</label>
-                <input type="text" name="mname" maxlength="1" placeholder="M">
+                <input type="text" name="mname" maxlength="1" placeholder="M"
+                    pattern="[A-Za-z]{0,1}"
+                    title="One letter only">>
 
                 <label>Last Name:</label>
                 <input type="text" name="lname" maxlength="30" placeholder="Dane" 
@@ -147,8 +149,8 @@ Description: Patient Registration Form for hospitals
 
                 <br><br><label class="line" for="zip">Zip:</label>
                 <input type="text" id="zip" name="zip" maxlength="10"
-                    pattern="\d{5}(-\d{4})?"
-                    title="Enter 5-digit zip or zip+4">
+                    pattern="[0-9]{5}(-[0-9]{4})?"
+                    title="5 digit or ZIP+4">
                 <br><br>
             </td>
         </tr>
@@ -158,7 +160,7 @@ Description: Patient Registration Form for hospitals
             <td>
             <label class="line">Phone Number:</label>
             <input type="text" id="phone" maxlength="12" placeholder="123-456-7890"
-                pattern="\d{3}-\d{3}-\d{4}"
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                 title="Format: 123-456-7890">
             <br><br>
             </td>
@@ -182,8 +184,8 @@ Description: Patient Registration Form for hospitals
             <td>
                 <label label class="line" for="password">Password:</label>
                 <input type="password" id="password" name="password" maxlength="20" 
-                    pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,30}" 
-                    title="8-30 chars, 1 uppercase, 1 lowercase, 1 number, 1 special character"><br><br>
+                    pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,30}"
+                    title="8+ chars, upper, lower, number, special"><br><br>
                 
                 <label label class="line" for="password2">Re-enter Password:</label>
                 <input type="password" id="password2" name="password2" maxlength="20">
@@ -249,8 +251,8 @@ Description: Patient Registration Form for hospitals
         <tr>
             <td>
                 <label>Health Rating (1-10)</label><br>
-                <input type="range" id="healthScale" name="healthScale" min="1" max="10" oninput="showValue(this.value)">
-                <span id="slider">5</span>
+                <input type="range" id="health" min="1" max="10" oninput="showValue(this.value)">
+                <span id="value">5</span>
                 <br><br>
             </td>
         </tr>
@@ -273,11 +275,19 @@ Description: Patient Registration Form for hospitals
 
 
                 
-<div id="reviewSection" style="display:none; background-color: rgb(255,255,255); width:900px; margin:20px auto; padding:20px; border-radius:8px;">
-    <h2>PLEASE REVIEW YOUR INFORMATION</h2>
-    <p id="reviewOutput"></p>
-</div>
+<div id="reviewSection" style="display:none; width:900px; margin:20px auto; background-color:rgb(255,255,255); padding:20px;">
 
+    <h3>PLEASE REVIEW YOUR INFORMATION</h3>
+
+    <p id="reviewName"></p>
+    <p id="reviewDOB"></p>
+    <p id="reviewEmail"></p>
+    <p id="reviewPhone"></p>
+    <p id="reviewAddress"></p>
+    <p id="reviewUser"></p>
+
+</div>
+                
 <!-- FOOTER -->
 <div id="footer">
         
