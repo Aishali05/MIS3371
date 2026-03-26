@@ -97,7 +97,7 @@ function reviewForm() {
     output += "Gender: " + gender + "<br>";
     output += "Vaccinated: " + vaccinated + "<br>";
     output += "Insurance: " + insurance + "<br>";
-    output += "Health Rating: " + healthscale + "<br>";
+    output += "Health Rating: " + health + "<br>";
     output += "Medical History: " + (diseaseList.length > 0 ? diseaseList.join(", ") : "None") + "<br>";
     output += "Symptoms: " + symptoms + "<br>";
     output += "User ID: " + userid + "<br>";
