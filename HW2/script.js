@@ -44,27 +44,26 @@ function reviewForm() {
 
     // ERROR MESSAGE
     var errorMessage = "";
+
     if (fname == "") errorMessage += "First name is required<br>";
     if (lname == "") errorMessage += "Last name is required<br>";
     if (dob == "") errorMessage += "Date of birth is required<br>";
-    if (email == "" || email.indexOf("@") == -1) errorMessage += "Invalid email<br>";
-    if (!/^\d{10}$/.test(phone)) errorMessage += "Phone must be 10 digits<br>";
-    if (!/^\d{5}(\d{4})?$/.test(zip)) errorMessage += "Zip must be 5 or 9 digits<br>";
 
-    userid = userid.toLowerCase();
-    var passErrors = validatePassword(password, password2, userid);
-    if (passErrors != "") errorMessage += passErrors;
+    if (email == "" || email.indexOf("@") == -1)
+        errorMessage += "Invalid email<br>";
 
-    // IF THERE ARE ERRORS, SHOW THEM AND STOP
-    if (errorMessage != "") {
-        document.getElementById("reviewOutput").innerHTML = "<strong>Errors:</strong><br>" + errorMessage;
-        return;
-    }
+    if (!/^\d{3}-\d{3}-\d{4}$/.test(phone))
+        errorMessage += "Phone must be in format 123-456-7890<br>";
+
+    if (!/^\d{5}(-\d{4})?$/.test(zip))
+        errorMessage += "Zip must be 5 digits or ZIP+4 (12345-6789)<br>";
 
     // PASSWORD VALIDATION
-    userid = userid.toLowerCase(); // display lowercase
-    var passErrors = validatePassword(password, password2, userid);
-    if (passErrors != "") errorMessage += passErrors;
+    errorMessage += validatePassword(password, password2, userid);
+
+
+    // PASSWORD VALIDATION
+    userid = userid.toLowerCase();
 
 
     //dob
@@ -83,6 +82,10 @@ function reviewForm() {
 
    // Output  
     var output = "PLEASE REVIEW THIS INFORMATION";
+
+     if (errorMessage != "") {
+        output += "<span style='color:red;'><strong>Errors:</strong><br>" + errorMessage + "</span><br>";
+    }
     output += "Name: " + fname + " " + mname + " " + lname + "<br>";
     output += "DOB: " + dob + "<br>";
     output += "Email: " + email + "<br>";
@@ -103,6 +106,40 @@ function reviewForm() {
 
     document.getElementById("reviewOutput").innerHTML = output;
 } 
+
+function validatePassword(password, password2, userid) {
+    var errors = "";
+
+    if (password !== password2) {
+        errors += "Passwords do not match<br>";
+    }
+
+    if (password.toLowerCase().includes(userid)) {
+        errors += "Password cannot contain User ID<br>";
+    }
+
+    if (!/[A-Z]/.test(password)) {
+        errors += "Must include uppercase letter<br>";
+    }
+
+    if (!/[a-z]/.test(password)) {
+        errors += "Must include lowercase letter<br>";
+    }
+
+    if (!/[0-9]/.test(password)) {
+        errors += "Must include a number<br>";
+    }
+
+    if (!/[!@#$%^&*()\-_=+\\\/><.,`~]/.test(password)) {
+        errors += "Must include special character<br>";
+    }
+
+    if (/["]/.test(password)) {
+        errors += "Cannot contain quotes<br>";
+    }
+
+    return errors;
+}
 
 
 //Slider Value
