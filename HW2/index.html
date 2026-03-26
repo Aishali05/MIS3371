@@ -43,7 +43,9 @@ Description: Patient Registration Form for hospitals
         <tr>
             <td>
                 <label class="line">First Name:</label>
-                <input type="text" name="fname" maxlength="30" placeholder="John">
+                <input type="text" name="fname" maxlength="30" placeholder="John"
+                    pattern="[A-Za-z'-]{1,30}"
+                    title="Letters, apostrophes, and dashes only">
                     
                 <label>Middle Initial:</label>
                 <input type="text" name="mname" maxlength="1" placeholder="M">
@@ -143,7 +145,9 @@ Description: Patient Registration Form for hospitals
                 
 
                 <br><br><label class="line" for="zip">Zip:</label>
-                <input type="text" id="zip" name="zip" maxlength="10">
+                <input type="text" id="zip" name="zip" maxlength="10"
+                    pattern="\d{5}(-\d{4})?"
+                    title="5 digit zip or zip+4">>
                 <br><br>
             </td>
         </tr>
@@ -152,7 +156,9 @@ Description: Patient Registration Form for hospitals
         <tr>
             <td>
             <label class="line">Phone Number:</label>
-            <input type="text" maxlength="12" placeholder="123-456-7890">
+            <input type="text" maxlength="12" placeholder="123-456-7890"
+                pattern="[A-Za-z'-]{1,30}"
+                title="Letters, apostrophes, and dashes only">>
             <br><br>
             </td>
         </tr>
@@ -164,7 +170,9 @@ Description: Patient Registration Form for hospitals
                 <input type="email" id="email" name="email"><br><br>
                 
                 <label class="line" for="userid">User ID:</label>
-                <input type="text" id="userid" name="userid" maxlength="20"><br><br>
+                <input type="text" id="userid" name="userid" maxlength="20"
+                    pattern="^[a-zA-Z][a-zA-Z0-9_-]{4,29}$"
+                    title="5-30 chars, start with letter, no spaces"> ><br><br>
             </td>
         </tr>
 
@@ -172,7 +180,9 @@ Description: Patient Registration Form for hospitals
         <tr>
             <td>
                 <label label class="line" for="password">Password:</label>
-                <input type="password" id="password" name="password" maxlength="20"><br><br>
+                <input type="password" id="password" name="password" maxlength="20"
+                    pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+\\\/><.,`~]).{8,30}$"
+                    title="8-30 chars, 1 uppercase, 1 lowercase, 1 number, 1 special char">><br><br>
                 
                 <label label class="line" for="password2">Re-enter Password:</label>
                 <input type="password" id="password2" name="password2" maxlength="20">
@@ -238,7 +248,9 @@ Description: Patient Registration Form for hospitals
         <tr>
             <td>
                 <label>Health Rating (1-10)</label><br>
-                <input type="range" id="healthScale" name="healthScale" min="1" max="10">
+                
+                <input type="range" id="healthScale" name="healthScale" min="1" max="10" oninput="updateSlider(this.value)">
+                    <span id="sliderValue">5</span>
                 <br><br>
             </td>
         </tr>
@@ -246,7 +258,7 @@ Description: Patient Registration Form for hospitals
 <!-- Buttons -->
         <tr>
             <td style="text-align:center;">
-                
+                <input type="button" value="Review" onclick="reviewForm()">
                 <input type="reset" value="Clear">
                 <input type="submit" value="Submit">
             </td>
@@ -257,6 +269,13 @@ Description: Patient Registration Form for hospitals
         
 </form>
 
+                
+<div id="reviewSection" style="margin-top:20px; border:1px solid black; padding:15px;">
+  
+    <h2>PLEASE REVIEW THIS INFORMATION</h2>
+    <p id="reviewOutput"></p>
+
+</div>
 <!-- FOOTER -->
 <div id="footer">
         
@@ -271,5 +290,7 @@ Description: Patient Registration Form for hospitals
 
     </body>
 
+
+<script src="script.js"></script>
     
 </html>
