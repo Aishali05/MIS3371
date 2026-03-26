@@ -63,10 +63,6 @@ function reviewForm() {
     userid = userid.toLowerCase(); // display lowercase
     var passErrors = validatePassword(password, password2, userid);
     if (passErrors != "") errorMessage += passErrors;
-    
-    if (errorMessage != "") {
-        document.getElementById("reviewOutput").innerHTML = "Errors:<br>" + errorMessage;
-        return;  }
 
 
     //dob
@@ -81,9 +77,21 @@ function reviewForm() {
     document.getElementsByName("dob")[0].setAttribute("max", maxDate);
     document.getElementsByName("dob")[0].setAttribute("min", minDate);
     
-    // Output
+    
+   // ERROR MESSAGE
 
-    var output = "PLEASE REVIEW THIS INFORMATION";
+
+    if (fname == "") errorMessage += "First name is required<br>";
+    if (lname == "") errorMessage += "Last name is required<br>";
+    if (dob == "") errorMessage += "Date of birth is required<br>";
+    if (email == "" || email.indexOf("@") == -1) errorMessage += "Invalid email<br>";
+    if (!/^\d{10}$/.test(phone)) errorMessage += "Phone must be 10 digits<br>";
+    if (!/^\d{5}(\d{4})?$/.test(zip)) errorMessage += "Zip must be 5 or 9 digits<br>";
+
+   // Output  
+    var output = ""
+    if (errorMessage != "") output += "<strong>Errors:</strong><br>" + errorMessage + "<br>";
+    output = "PLEASE REVIEW THIS INFORMATION";
     output += "Name: " + fname + " " + mname + " " + lname + "<br>";
     output += "DOB: " + dob + "<br>";
     output += "Email: " + email + "<br>";
