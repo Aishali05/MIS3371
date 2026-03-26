@@ -54,9 +54,9 @@ function reviewForm() {
 
     if (email == "" || email.indexOf("@") == -1) {errorMessage += "Invalid email <br>";   }
 
-    if (!/^\d{3}\d{3}\d{4}$/.test(phone)) errorMessage += "Phone must be 000-000-0000<br>";
+    if (!/^\d{10}$/.test(phone)) errorMessage += "Phone must be 10 digits<br>";
    
-    if (!/^\d{5}(\d{4})?$/.test(zip)) errorMessage += "Zip must be 5 digits or 5+4<br>";
+    if (!/^\d{5}(\d{4})?$/.test(zip)) errorMessage += "Zip must be 5 or 9 digits <br>";
 
 
     // PASSWORD VALIDATION
@@ -68,8 +68,6 @@ function reviewForm() {
         document.getElementById("reviewOutput").innerHTML = "Errors:<br>" + errorMessage;
         return;  }
 
-
-    }
 
     //dob
     var today = new Date();
@@ -97,7 +95,7 @@ function reviewForm() {
     output += "Gender: " + gender + "<br>";
     output += "Vaccinated: " + vaccinated + "<br>";
     output += "Insurance: " + insurance + "<br>";
-    output += "Health Rating: " + health + "<br>";
+    output += "Health Rating: " + healthscale + "<br>";
     output += "Medical History: " + (diseaseList.length > 0 ? diseaseList.join(", ") : "None") + "<br>";
     output += "Symptoms: " + symptoms + "<br>";
     output += "User ID: " + userid + "<br>";
