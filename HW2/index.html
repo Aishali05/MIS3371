@@ -146,8 +146,8 @@ Description: Patient Registration Form for hospitals
 
                 <br><br><label class="line" for="zip">Zip:</label>
                 <input type="text" id="zip" name="zip" maxlength="10"
-                    pattern="\d{5}(-\d{4})?"
-                    title="5 digit zip or zip+4">
+                    pattern="^\d{5}(\d{4})?$"
+                    title="Enter 5-digit ZIP or ZIP+4 (e.g., 77002 or 77002-1234)">
                 <br><br>
             </td>
         </tr>
@@ -157,8 +157,8 @@ Description: Patient Registration Form for hospitals
             <td>
             <label class="line">Phone Number:</label>
             <input type="text" maxlength="12" placeholder="123-456-7890"
-                pattern="[A-Za-z'-]{1,30}"
-                title="Letters, apostrophes, and dashes only">
+                pattern="^\d{3}\d{3}\d{4}$"
+                title="Phone's format must be 123-456-7890">
             <br><br>
             </td>
         </tr>
