@@ -51,7 +51,7 @@ Description: Patient Registration Form for hospitals
 
                 <label>Last Name:</label>
                 <input type="text" name="lname" maxlength="30" placeholder="Dane" 
-                    pattern="[A-Za-z0-9'-]{1-30}" 
+                    pattern="[A-Za-z0-9'-]{1,30}" 
                     title="Letters, numbers (2-5), dashes allowed">
                 <br><br>
             </td>
@@ -146,7 +146,9 @@ Description: Patient Registration Form for hospitals
                 
 
                 <br><br><label class="line" for="zip">Zip:</label>
-                <input type="text" id="zip" name="zip" maxlength="10">
+                <input type="text" id="zip" name="zip" maxlength="10"
+                    pattern="\d{5}(-\d{4})?"
+                    title="Enter 5-digit zip or zip+4">
                 <br><br>
             </td>
         </tr>
@@ -155,7 +157,9 @@ Description: Patient Registration Form for hospitals
         <tr>
             <td>
             <label class="line">Phone Number:</label>
-            <input type="text" maxlength="12" placeholder="123-456-7890">
+            <input type="text" id="phone" maxlength="12" placeholder="123-456-7890"
+                pattern="\d{3}-\d{3}-\d{4}"
+                title="Format: 123-456-7890">
             <br><br>
             </td>
         </tr>
@@ -168,7 +172,7 @@ Description: Patient Registration Form for hospitals
                 
                 <label class="line" for="userid">User ID:</label>
                 <input type="text" id="userid" name="userid" maxlength="30" 
-                    pattern="^[a-zA-Z] [a-zA-Z0-9_-]{4,29}$" 
+                    pattern="^[A-Za-z][A-Za-z0-9_-]{4,29}$" 
                     title="5-30 characters, must start with letter, no spaces"><br><br>
             </td>
         </tr>
