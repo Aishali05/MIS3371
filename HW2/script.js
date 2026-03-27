@@ -70,9 +70,8 @@ function reviewForm() {
     errorMessage += validatePassword(password, password2, userid);
 
 
-    // PASSWORD VALIDATION
-    userid = userid.toLowerCase();
-
+    // User Id Lower Case
+    document.getElementsByName("userid")[0].value = userid.toLowerCase();
 
     //dob
     var today = new Date();
@@ -149,10 +148,8 @@ function validatePassword(password, password2, userid) {
     return errors;
 }
 
-
 //Slider Value
 function updateSlider(val) {
     document.getElementById("sliderValue").innerText = val;
 }
-
 
