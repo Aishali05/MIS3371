@@ -34,7 +34,7 @@ Description: Patient Registration Form for hospitals
         </div>
 
 <!-- FORM -->
-    <form action="thankyou.html">
+    <form action="thankyou.html" onsubmit="return reviewForm()">
 
     <table>
 
@@ -47,10 +47,14 @@ Description: Patient Registration Form for hospitals
                     title="Letters, apostrophes, and dashes only">
                     
                 <label>Middle Initial:</label>
-                <input type="text" name="mname" maxlength="1" placeholder="M">
+                <input type="text" name="mname" maxlength="1" placeholder="M"
+                    pattern="[A-Za-z]{0,1}" 
+                    title="One letter only">
 
                 <label>Last Name:</label>
-                <input type="text" name="lname" maxlength="30" placeholder="Dane">
+                <input type="text" name="lname" maxlength="30" placeholder="Dane"
+                    pattern="[A-Za-z'-]{1,30}"
+                    title="Letters, apostrophes, and dashes only">
                 <br><br>
             </td>
         </tr>
@@ -59,7 +63,8 @@ Description: Patient Registration Form for hospitals
         <tr>
             <td>
                 <label class="line">Date of Birth:</label>
-                <input type="date" name="dob">
+                <input type="date" name="dob"
+                    title="Enter your date of birth">
                 <br><br>
             </td>
         </tr>
@@ -68,7 +73,9 @@ Description: Patient Registration Form for hospitals
         <tr>
             <td>
                 <label class="line">SSN:</label>
-                <input type="password" maxlength="11" placeholder="XXX-XX-XXXX">
+                <input type="password" maxlength="11" placeholder="XXX-XX-XXXX"
+                    pattern="\d{9}"
+                    title="Format: XXX-XX-XXXX">
                 <br><br>
             </td>
         </tr>
@@ -77,13 +84,21 @@ Description: Patient Registration Form for hospitals
         <tr>
             <td>
                 <label class="line" for="address1">Address 1:</label>
-                <input type="text" id="address1" name="address1" maxlength="30">
+                <input type="text" id="address1" name="address1" maxlength="30"
+                    pattern="[A-Za-z0-9\s.,'-]{1,30}" 
+                    title="Letters, numbers, spaces, and punctuation allowed">
+                
                 <label for="address2">Address 2:</label>
-                <input type="text" id="address2" name="address2" maxlength="30">
+                <input type="text" id="address2" name="address2" maxlength="30"
+                    pattern="[A-Za-z0-9\s.,'-]{0,30}" 
+                    title="Optional secondary address">
                 <br><br>
 
                 <label class="line" for="city">City:</label>
-                <input type="text" id="city" name="city" maxlength="30">
+                <input type="text" id="city" name="city" maxlength="30"
+                    pattern="[A-Za-z\s'-]{1,30}" 
+                    title="Letters, spaces, dashes allowed">
+                <br><br>
                 <br><br>
 
                 <label class="line" for="state">State:</label>
@@ -145,8 +160,8 @@ Description: Patient Registration Form for hospitals
 
                 <br><br><label class="line" for="zip">Zip:</label>
                 <input type="text" id="zip" name="zip" maxlength="10"
-                    pattern="^\d{5}(\d{4})?$"
-                    title="Enter 5-digit ZIP or ZIP+4 (e.g., 77002 or 77002-1234)">
+                    pattern="^\d{9}?$"
+                    title="5-digit ZIP or ZIP+4 (e.g., 77002 or 77002-1234)">
                 <br><br>
             </td>
         </tr>
