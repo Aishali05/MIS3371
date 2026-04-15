@@ -56,6 +56,22 @@ label {
     margin-right: 5px;
 }
 
+
+/* Error messages (JavaScript validation) */
+.error {
+    color: red;
+    font-size: 12px;
+    display: inline-block;
+    min-width: 140px;
+    margin-left: 8px;
+}
+
+/* Hide submit button until form is valid */
+#submitBtn {
+    display: none;
+}
+
+
 /* Textarea */
 textarea {
     width: 95%;
@@ -90,9 +106,6 @@ input[type="reset"]:hover {
 .submission {
     text-align: center;
 }
-
-
-
 
 /* Footer */
 #footer {
