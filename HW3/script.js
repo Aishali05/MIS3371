@@ -1,310 +1,154 @@
-<!--Program Name: Medical Patient Form
-Author: Aish Ali
-Date Created: 02/10/2026
-Date Last Edited: 03/26/2026
-Version: 2.0
-Description: Patient Registration Form for hospitals
--->
+//Program Name: JavaScript Review Form for Medical Form
+//Author: Aish Ali
+//Date Created: 03/16/2026
+//Date Last Edited: 03/26/2026
+//Version 1.0
+//Description: Review Form code to check all information on the Medical Form
 
-<!DOCTYPE html>
-    <html>
-        <head>
 
-            <title>Medical Patient Form</title>
-            <link href="style.css" rel="stylesheet">
+// REVIEW BUTTON FUNCTION
+function reviewForm() {
 
-        </head>
+    // GET VALUES
+    var fname = document.getElementsByName("fname") [0].value;
+    var mname = document.getElementsByName("mname") [0].value;
+    var lname = document.getElementsByName("lname") [0].value;
+    var dob = document.getElementsByName("dob") [0].value;
+    var email = document.getElementsByName("email") [0].value;
+    var phone = document.getElementsByName("phone") [0].value;
+    var address1 = document.getElementsByName("address1") [0].value;
+    var address2 = document.getElementsByName("address2") [0].value;
+    var city = document.getElementsByName("city") [0].value;
+    var state = document.getElementsByName("state") [0].value;
+    var zip = document.getElementsByName("zip") [0].value;
+    var userid = document.getElementsByName("userid") [0].value;
+    var password = document.getElementsByName("password") [0].value;
+    var password2 = document.getElementsByName("password2") [0].value;
+    var symptoms = document.getElementsByName("symptoms") [0].value;
+    var healthscale = document.getElementsByName("healthScale") [0].value;
 
-            <body>
-
-        <!-- HEADER -->
-        
-        <div id="header">
-            <img src="Cougar Image.png" alt="Logo" id="logo">
-            <h1>Cougar Care Medical</h1>
-         
-        <!-- Date -->
-             <p>Today's Date: <span id="today"></span></p>
-        
-            <script>
-                var today = new Date();
-                document.getElementById("today").innerHTML = today.toDateString();
-            </script>
-
-        </div>
-
-<!-- FORM -->
-    <form action="thankyou.html" onsubmit="return reviewForm()">
-
-    <table>
-
-<!-- Name -->
-        <tr>
-            <td>
-                <label class="line">First Name:</label>
-                <input type="text" name="fname" maxlength="30" placeholder="John"
-                    pattern="[A-Za-z'-]{1,30}"
-                    title="Letters, apostrophes, and dashes only">
-                    
-                <label>Middle Initial:</label>
-                <input type="text" name="mname" maxlength="1" placeholder="M"
-                    pattern="[A-Za-z]{0,1}" 
-                    title="One letter only">
-
-                <label>Last Name:</label>
-                <input type="text" name="lname" maxlength="30" placeholder="Dane"
-                    pattern="[A-Za-z'-]{1,30}"
-                    title="Letters, apostrophes, and dashes only">
-                <br><br>
-            </td>
-        </tr>
-
-<!-- Date of Birth -->
-        <tr>
-            <td>
-                <label class="line">Date of Birth:</label>
-                <input type="date" name="dob"
-                    title="Enter your date of birth">
-                <br><br>
-            </td>
-        </tr>
-
-<!-- SSN -->
-        <tr>
-            <td>
-                <label class="line">SSN:</label>
-                <input type="password" maxlength="11" placeholder="XXX-XX-XXXX"
-                    pattern="\d{9}"
-                    title="Format: XXX-XX-XXXX">
-                <br><br>
-            </td>
-        </tr>
-
-<!-- Address -->
-        <tr>
-            <td>
-                <label class="line" for="address1">Address 1:</label>
-                <input type="text" id="address1" name="address1" maxlength="30"
-                    pattern="[A-Za-z0-9\s.,'-]{1,30}" 
-                    title="Letters, numbers, spaces, and punctuation allowed">
-                
-                <label for="address2">Address 2:</label>
-                <input type="text" id="address2" name="address2" maxlength="30"
-                    pattern="[A-Za-z0-9\s.,'-]{0,30}" 
-                    title="Optional secondary address">
-                <br><br>
-
-                <label class="line" for="city">City:</label>
-                <input type="text" id="city" name="city" maxlength="30"
-                    pattern="[A-Za-z\s'-]{1,30}" 
-                    title="Letters, spaces, dashes allowed">
-                <br><br>
-                <br><br>
-
-                <label class="line" for="state">State:</label>
-            
-                    <select id="state" name="state" placeholder="Select">
-                            <option value="S">Select</option>
-                            <option value="AL">Alabama</option>
-                            <option value="AK">Alaska</option>
-                            <option value="AZ">Arizona</option>
-                            <option value="AR">Arkansas</option>
-                            <option value="CA">California</option>
-                            <option value="CO">Colorado</option>
-                            <option value="CT">Connecticut</option>
-                            <option value="DE">Delaware</option>
-                            <option value="FL">Florida</option>
-                            <option value="GA">Georgia</option>
-                            <option value="HI">Hawaii</option>
-                            <option value="ID">Idaho</option>
-                            <option value="IL">Illinois</option>
-                            <option value="IN">Indiana</option>
-                            <option value="IA">Iowa</option>
-                            <option value="KS">Kansas</option>
-                            <option value="KY">Kentucky</option>
-                            <option value="LA">Louisiana</option>
-                            <option value="ME">Maine</option>
-                            <option value="MD">Maryland</option>
-                            <option value="MA">Massachusetts</option>
-                            <option value="MI">Michigan</option>
-                            <option value="MN">Minnesota</option>
-                            <option value="MS">Mississippi</option>
-                            <option value="MO">Missouri</option>
-                            <option value="MT">Montana</option>
-                            <option value="NE">Nebraska</option>
-                            <option value="NV">Nevada</option>
-                            <option value="NH">New Hampshire</option>
-                            <option value="NJ">New Jersey</option>
-                            <option value="NM">New Mexico</option>
-                            <option value="NY">New York</option>
-                            <option value="NC">North Carolina</option>
-                            <option value="ND">North Dakota</option>
-                            <option value="OH">Ohio</option>
-                            <option value="OK">Oklahoma</option>
-                            <option value="OR">Oregon</option>
-                            <option value="PA">Pennsylvania</option>
-                            <option value="RI">Rhode Island</option>
-                            <option value="SC">South Carolina</option>
-                            <option value="SD">South Dakota</option>
-                            <option value="TN">Tennessee</option>
-                            <option value="TX">Texas</option>
-                            <option value="UT">Utah</option>
-                            <option value="VT">Vermont</option>
-                            <option value="VA">Virginia</option>
-                            <option value="WA">Washington</option>
-                            <option value="WV">West Virginia</option>
-                            <option value="WI">Wisconsin</option>
-                            <option value="WY">Wyoming</option>
-                    </select>
-                
-
-                <br><br><label class="line" for="zip">Zip:</label>
-                <input type="text" id="zip" name="zip" maxlength="10"
-                    pattern="^\d{9}?$"
-                    title="5-digit ZIP or ZIP+4 (e.g., 77002 or 77002-1234)">
-                <br><br>
-            </td>
-        </tr>
-
-<!-- Phone -->
-        <tr>
-            <td>
-            <label class="line">Phone Number:</label>
-            <input type="text" name="phone" maxlength="10" placeholder="1234567890"
-                pattern="^\d{3}\d{3}\d{4}$"
-                title="Phone's format must be 10 digits">
-            <br><br>
-            </td>
-        </tr>
-
-<!-- Email + User ID -->
-        <tr>
-            <td>
-                <label label class="line" for="email">Email:</label>
-                <input type="email" id="email" name="email"><br><br>
-                
-                <label class="line" for="userid">User ID:</label>
-                <input type="text" id="userid" name="userid" maxlength="20"
-                    pattern="^[a-zA-Z][a-zA-Z0-9_-]{4,29}$"
-                    title="5-30 chars, start with letter, no spaces"><br><br>
-            </td>
-        </tr>
-
-<!-- Password -->
-        <tr>
-            <td>
-                <label class="line" for="password">Password:</label>
-                <input type="password" id="password" name="password" maxlength="20"
-                    pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+\\\/><.,`~]).{8,30}$"
-                    title="8-30 chars, 1 uppercase, 1 lowercase, 1 number, 1 special char"><br><br>
-                
-                <label class="line" for="password2">Re-enter Password:</label>
-                <input type="password" id="password2" name="password2" maxlength="20">
-                <br><br>
-            </td>
-        </tr>
-
-<!-- Symptoms -->
-        <tr>
-            <td>
-                <label for="symptoms">Describe Symptoms:</label>
-                <br>
-                <textarea id="symptoms" name="symptoms" rows="3" cols="50"></textarea>
-                <br><br>
-            </td>
-        </tr>
-
-<!-- Medical History -->
-        <tr>
-            <td>
-                <label>Medical History:</label><br>
-                    <input type="checkbox" name="disease" value="chickenpox"> Chicken Pox<br>
-                    <input type="checkbox" name="disease" value="measles"> Measles<br>
-                    <input type="checkbox" name="disease" value="covid19"> Covid-19<br>
-                    <input type="checkbox" name="disease" value="smallpox"> Small Pox<br>
-                    <input type="checkbox" name="disease" value="tetanus"> Tetanus<br>
-                <br><br>
-            </td>
-        </tr>
-
-<!-- Gender -->
-        <tr>
-            <td>
-                <label>Gender:</label>
-                    <input type="radio" name="gender" value="male"> Male
-                    <input type="radio" name="gender" value="female"> Female
-                    <input type="radio" name="gender" value="other"> Other
-                <br><br>
-            </td>    
-        </tr>
-
-<!-- Vaccinated -->
-        <tr>
-            <td>
-                    <label>Are you vaccinated?</label>
-                    <input type="radio" name="vaccinated" value="yes"> Yes
-                    <input type="radio" name="vaccinated" value="no"> No
-                <br><br>
-            </td>
-        </tr>
-
-<!-- Insurance -->
-        <tr>
-            <td>
-                <label>Do you have insurance?</label>
-                <input type="radio" name="insurance" value="yes"> Yes
-                <input type="radio" name="insurance" value="no"> No
-                <br><br>
-            </td>
-        </tr>
-
-<!-- Health Rating -->
-        <tr>
-            <td>
-                <label>Health Rating (1-10)</label><br>
-                
-                <input type="range" id="healthScale" name="healthScale" min="1" max="10" oninput="updateSlider(this.value)">
-                    <span id="sliderValue">5</span>
-                <br><br>
-            </td>
-        </tr>
-
-<!-- Buttons -->
-        <tr>
-            <td style="text-align:center;">
-                <input type="button" value="Review" onclick="reviewForm()">
-                <input type="reset" value="Clear">
-                <input type="submit" value="Submit">
-            </td>
-        </tr>
-
-    </table>
-
-        
-</form>
-
-                
-<div id="reviewSection" style="margin-top:20px; border:1px solid black; padding:15px;">
-  
-    <h2>PLEASE REVIEW THIS INFORMATION</h2>
-    <p id="reviewOutput"></p>
-
-</div>
-<!-- FOOTER -->
-<div id="footer">
-        
-    <p>Cougar Care Medical</p>
-    <p>PO BOX 18881, Sugar Land, TX 77496</p>
+    //Radio Buttons
+    var gender = "";
+    var genderOptions = document.getElementsByName("gender");
+    for (var i = 0; i < genderOptions.length; i++) {
+        if (genderOptions[i].checked) gender = genderOptions[i].value; }
     
-    <a href="medical@cougarcare.com">
-        <button>Contact Us</button>
-</a>
+    var vaccinated = "";
+    var vaccinatedOptions = document.getElementsByName("vaccinated");
+    for (var i = 0; i < vaccinatedOptions.length; i++) {
+        if (vaccinatedOptions[i].checked) vaccinated = vaccinatedOptions[i].value; }
 
-</div>
+    var insurance = "";
+    var insuranceOptions = document.getElementsByName("insurance");
+    for (var i = 0; i < insuranceOptions.length; i++) {
+        if (insuranceOptions[i].checked) insurance = insuranceOptions[i].value; }
 
-    </body>
+
+    //Checkboxes
+    var diseases = document.getElementsByName("disease");
+    var diseaseList = [];
+    for (var i = 0; i < diseases.length; i++) {
+        if (diseases[i].checked) diseaseList.push(diseases[i].value);  } 
+
+    // ERROR MESSAGE
+    var errorMessage = "";
+
+    if (fname == "") errorMessage += "First name is required<br>";
+    if (lname == "") errorMessage += "Last name is required<br>";
+    if (dob == "") errorMessage += "Date of birth is required<br>";
+
+    if (email == "" || email.indexOf("@") == -1)
+        errorMessage += "Invalid email<br>";
+
+    if (!/^\d{3}-\d{3}-\d{4}$/.test(phone))
+        errorMessage += "Phone must be in format 123-456-7890<br>";
+
+    if (!/^\d{5}(-\d{4})?$/.test(zip))
+        errorMessage += "Zip must be 5 digits or ZIP+4 (12345-6789)<br>";
+
+    // PASSWORD VALIDATION
+    errorMessage += validatePassword(password, password2, userid);
 
 
-<script src="script.js"></script>
+    // User Id Lower Case
+    document.getElementsByName("userid")[0].value = userid.toLowerCase();
+
+    //dob
+    var today = new Date();
+    var yyyy = today.getFullYear();
+    var mm = String(today.getMonth()+1).padStart(2,'0');
+    var dd = String(today.getDate()).padStart(2,'0');
+   
+    var maxDate = yyyy + '-' + mm + '-' + dd;
+    var minDate = (yyyy-120) + '-' + mm + '-' + dd;
+
+    document.getElementsByName("dob")[0].setAttribute("max", maxDate);
+    document.getElementsByName("dob")[0].setAttribute("min", minDate);
     
-</html>
+    
+
+   // Output  
+    var output = "PLEASE REVIEW THIS INFORMATION";
+
+     if (errorMessage != "") {
+        output += "<span style='color:red;'><br>" + errorMessage + "</span><br>";
+    }
+    output += "Name: " + fname + " " + mname + " " + lname + "<br>";
+    output += "DOB: " + dob + "<br>";
+    output += "Email: " + email + "<br>";
+    output += "Phone: " + phone + "<br>";
+    output += "Address: " + address1;
+        if (address2 != "") output += ", " + address2;
+    
+    output += "<br>" + city + ", " + state + " " + zip + "<br>";
+    output += "Gender: " + gender + "<br>";
+    output += "Vaccinated: " + vaccinated + "<br>";
+    output += "Insurance: " + insurance + "<br>";
+    output += "Health Rating: " + healthscale + "<br>";
+    output += "Medical History: " + (diseaseList.length > 0 ? diseaseList.join(", ") : "None") + "<br>";
+    output += "Symptoms: " + symptoms + "<br>";
+    output += "User ID: " + userid + "<br>";
+    output += "Password: " + password + "<br>";
+
+
+    document.getElementById("reviewOutput").innerHTML = output;
+} 
+
+function validatePassword(password, password2, userid) {
+    var errors = "";
+
+    if (password !== password2) {
+        errors += "Passwords do not match<br>";
+    }
+
+    if (password.toLowerCase().includes(userid)) {
+        errors += "Password cannot contain User ID<br>";
+    }
+
+    if (!/[A-Z]/.test(password)) {
+        errors += "Must include uppercase letter<br>";
+    }
+
+    if (!/[a-z]/.test(password)) {
+        errors += "Must include lowercase letter<br>";
+    }
+
+    if (!/[0-9]/.test(password)) {
+        errors += "Must include a number<br>";
+    }
+
+    if (!/[!@#$%^&*()\-_=+\\\/><.,`~]/.test(password)) {
+        errors += "Must include special character<br>";
+    }
+
+    if (/["]/.test(password)) {
+        errors += "Cannot contain quotes<br>";
+    }
+
+    return errors;
+}
+
+//Slider Value
+function updateSlider(val) {
+    document.getElementById("sliderValue").innerText = val;
+}
