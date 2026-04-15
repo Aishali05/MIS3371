@@ -34,7 +34,7 @@ Description: Patient Registration Form for hospitals
         </div>
 
 <!-- FORM -->
-    <form action="thankyou.html" onsubmit="return reviewForm()">
+    <form action="thankyou.html">
 
     <table>
 
@@ -42,19 +42,28 @@ Description: Patient Registration Form for hospitals
         <tr>
             <td>
                 <label class="line">First Name:</label>
-                <input type="text" name="fname" maxlength="30" placeholder="John"
+                <input type="text" id="fname" name="fname" maxlength="30" placeholder="John"
                     pattern="[A-Za-z'-]{1,30}"
-                    title="Letters, apostrophes, and dashes only">
+                    title="Letters, apostrophes, and dashes only"
+                    oninput="checkFName()"
+                    onblur="checkFName()">
+                <span class="error"  id="fnameError"></span>
                     
                 <label>Middle Initial:</label>
-                <input type="text" name="mname" maxlength="1" placeholder="M"
+                <input type="text" id="mname" name="mname" maxlength="1" placeholder="M"
                     pattern="[A-Za-z]{0,1}" 
-                    title="One letter only">
+                    title="One letter only"
+                    oninput="checkMName()"
+                    onblur="checkMName()">
+                <span class="error"  id="mnameError"></span>
 
                 <label>Last Name:</label>
-                <input type="text" name="lname" maxlength="30" placeholder="Dane"
+                <input type="text" id="lname" name="lname" maxlength="30" placeholder="Dane"
                     pattern="[A-Za-z'-]{1,30}"
-                    title="Letters, apostrophes, and dashes only">
+                    title="Letters, apostrophes, and dashes only"
+                    oninput="checkLName()"
+                    onblur="checkLName()">
+                <span class="error"  id="lnameError"></span>
                 <br><br>
             </td>
         </tr>
@@ -63,8 +72,11 @@ Description: Patient Registration Form for hospitals
         <tr>
             <td>
                 <label class="line">Date of Birth:</label>
-                <input type="date" name="dob"
-                    title="Enter your date of birth">
+                <input type="date" id="dob" name="dob"
+                    title="Enter your date of birth"
+                    onblur="checkDOB()"
+                    onchange="checkDOB()">
+                <span class="error" id="dobError"></span>
                 <br><br>
             </td>
         </tr>
@@ -73,9 +85,12 @@ Description: Patient Registration Form for hospitals
         <tr>
             <td>
                 <label class="line">SSN:</label>
-                <input type="password" maxlength="11" placeholder="XXX-XX-XXXX"
+                <input type="password" id="ssn" name="ssn" maxlength="11" placeholder="XXX-XX-XXXX"
                     pattern="\d{9}"
-                    title="Format: XXX-XX-XXXX">
+                    title="Format: XXX-XX-XXXX"
+                    oninput="formatSSN(); checkSSN()"
+                    onblur="checkSSN()">
+                <span class="error" id="ssnError"></span>
                 <br><br>
             </td>
         </tr>
@@ -86,24 +101,33 @@ Description: Patient Registration Form for hospitals
                 <label class="line" for="address1">Address 1:</label>
                 <input type="text" id="address1" name="address1" maxlength="30"
                     pattern="[A-Za-z0-9\s.,'-]{1,30}" 
-                    title="Letters, numbers, spaces, and punctuation allowed">
+                    title="Letters, numbers, spaces, and punctuation allowed"
+                    oninput="checkAddress1()"
+                    onblur="checkAddress1()">
+                <span class="error" id="address1Error"></span>
                 
                 <label for="address2">Address 2:</label>
                 <input type="text" id="address2" name="address2" maxlength="30"
                     pattern="[A-Za-z0-9\s.,'-]{0,30}" 
-                    title="Optional secondary address">
+                    title="Optional secondary address"
+                    oninput="checkAddress2()"
+                    onblur="checkAddress2()">
+                <span class="error" id="address2Error"></span>
                 <br><br>
 
                 <label class="line" for="city">City:</label>
                 <input type="text" id="city" name="city" maxlength="30"
                     pattern="[A-Za-z\s'-]{1,30}" 
-                    title="Letters, spaces, dashes allowed">
+                    title="Letters, spaces, dashes allowed"
+                    oninput="checkCity()"
+                    onblur="checkCity()">
+                <span class="error" id="cityError"></span>
+
                 <br><br>
                 <br><br>
 
                 <label class="line" for="state">State:</label>
-            
-                    <select id="state" name="state" placeholder="Select">
+                        <select id="state" name="state" onchange="checkState()">
                             <option value="S">Select</option>
                             <option value="AL">Alabama</option>
                             <option value="AK">Alaska</option>
@@ -156,12 +180,16 @@ Description: Patient Registration Form for hospitals
                             <option value="WI">Wisconsin</option>
                             <option value="WY">Wyoming</option>
                     </select>
+                    <span class="error" id="stateError"></span>
                 
 
                 <br><br><label class="line" for="zip">Zip:</label>
                 <input type="text" id="zip" name="zip" maxlength="10"
                     pattern="^\d{9}?$"
-                    title="5-digit ZIP or ZIP+4 (e.g., 77002 or 77002-1234)">
+                    title="5-digit ZIP or ZIP+4 (e.g., 77002 or 77002-1234)"
+                    oninput="checkZip()"
+                    onblur="checkZip()">
+                <span class="error" id="zipError"></span>
                 <br><br>
             </td>
         </tr>
@@ -170,9 +198,12 @@ Description: Patient Registration Form for hospitals
         <tr>
             <td>
             <label class="line">Phone Number:</label>
-            <input type="text" name="phone" maxlength="10" placeholder="1234567890"
+            <input type="text" id="phone" name="phone" maxlength="10" placeholder="1234567890"
                 pattern="^\d{3}\d{3}\d{4}$"
-                title="Phone's format must be 10 digits">
+                title="Phone's format must be 10 digits"
+                oninput="checkPhone()"
+                onblur="checkPhone()">
+            <span class="error" id="phoneError"></span>
             <br><br>
             </td>
         </tr>
@@ -181,12 +212,20 @@ Description: Patient Registration Form for hospitals
         <tr>
             <td>
                 <label label class="line" for="email">Email:</label>
-                <input type="email" id="email" name="email"><br><br>
+                <input type="email" id="email" name="email"
+                    oninput="checkEmail()"
+                    onblur="checkEmail()">
+                <span class="error" id="emailError"></span>
+                <br><br>
                 
                 <label class="line" for="userid">User ID:</label>
                 <input type="text" id="userid" name="userid" maxlength="20"
                     pattern="^[a-zA-Z][a-zA-Z0-9_-]{4,29}$"
-                    title="5-30 chars, start with letter, no spaces"><br><br>
+                    title="5-30 chars, start with letter, no spaces"
+                    oninput="checkUserID()"
+                    onblur="checkUserID()">
+                <span class="error" id="useridError"></span>
+                <br><br>
             </td>
         </tr>
 
@@ -196,10 +235,17 @@ Description: Patient Registration Form for hospitals
                 <label class="line" for="password">Password:</label>
                 <input type="password" id="password" name="password" maxlength="20"
                     pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+\\\/><.,`~]).{8,30}$"
-                    title="8-30 chars, 1 uppercase, 1 lowercase, 1 number, 1 special char"><br><br>
+                    title="8-30 chars, 1 uppercase, 1 lowercase, 1 number, 1 special char"
+                    oninput="checkPassword()"
+                    onblur="checkPassword()">
+                <span class="error" id="passwordError"></span>
+                    <br><br>
                 
                 <label class="line" for="password2">Re-enter Password:</label>
-                <input type="password" id="password2" name="password2" maxlength="20">
+                <input type="password" id="password2" name="password2" maxlength="20"
+                    oninput="checkPasswordMatch()"
+                    onblur="checkPasswordMatch()">
+                <span class="error" id="password2Error"></span>
                 <br><br>
             </td>
         </tr>
@@ -272,9 +318,9 @@ Description: Patient Registration Form for hospitals
 <!-- Buttons -->
         <tr>
             <td style="text-align:center;">
-                <input type="button" value="Review" onclick="reviewForm()">
+                <input type="button" value="Validate" onclick="validateForm()">
                 <input type="reset" value="Clear">
-                <input type="submit" value="Submit">
+                <input type="submit" id="submitBtn" value="Submit">
             </td>
         </tr>
 
