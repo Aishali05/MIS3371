@@ -91,6 +91,20 @@ input[type="reset"]:hover {
     text-align: center;
 }
 
+/*Check for errors*/
+.error {
+    color: red;
+    font-size: 12px;
+    display: block;
+    min-height: 18px;
+}
+
+#submitBtn {
+    display: none;
+}
+
+
+
 /* Footer */
 #footer {
     background-color: rgb(50, 50, 50);
