@@ -152,3 +152,268 @@ function validatePassword(password, password2, userid) {
 function updateSlider(val) {
     document.getElementById("sliderValue").innerText = val;
 }
+
+//Check for Error while filling out
+function showError(id, message) {
+    document.getElementById(id).innerHTML = message;
+}
+
+function clearError(id) {
+    document.getElementById(id).innerHTML = "";
+}
+
+//Check for First Name
+function checkFName() {
+    let fname = document.getElementById("fname").value.trim();
+
+    if (!/^[A-Za-z'-]{1,30}$/.test(fname)) {
+        showError("fnameError", "1-30 letters only");
+        return false;
+    }
+
+    clearError("fnameError");
+    return true;
+}
+
+//Check for Middle Name
+function checkMName() {
+    let mname = document.getElementById("mname").value.trim();
+
+    if (mname !== "" && !/^[A-Za-z]{1}$/.test(mname)) {
+        showError("mnameError", "One letter only");
+        return false;
+    }
+
+    clearError("mnameError");
+    return true;
+}
+
+//Check for Last Name
+function checkLName() {
+    let lname = document.getElementById("lname").value.trim();
+
+    if (!/^[A-Za-z'-]{1,30}$/.test(lname)) {
+        showError("lnameError", "1-30 letters only");
+        return false;
+    }
+
+    clearError("lnameError");
+    return true;
+}
+
+
+//Check for DOB
+function checkDOB() {
+    let dob = document.getElementById("dob").value;
+    let birthDate = new Date(dob);
+    let today = new Date();
+    let oldest = new Date();
+    oldest.setFullYear(today.getFullYear() - 120);
+
+    if (dob === "") {
+        showError("dobError", "DOB required");
+        return false;
+    }
+
+    if (birthDate > today || birthDate < oldest) {
+        showError("dobError", "DOB must be within 120 years");
+        return false;
+    }
+
+    clearError("dobError");
+    return true;
+}
+
+
+//Check for SSN
+function formatSSN() {
+    let ssn = document.getElementById("ssn");
+    let numbers = ssn.value.replace(/\D/g, "");
+
+    if (numbers.length > 3 && numbers.length <= 5) {
+        numbers = numbers.slice(0,3) + "-" + numbers.slice(3);
+    } else if (numbers.length > 5) {
+        numbers = numbers.slice(0,3) + "-" + numbers.slice(3,5) + "-" + numbers.slice(5,9);
+    }
+
+    ssn.value = numbers;
+}
+
+function checkSSN() {
+    let ssn = document.getElementById("ssn").value;
+
+    if (!/^\d{3}-\d{2}-\d{4}$/.test(ssn)) {
+        showError("ssnError", "Use XXX-XX-XXXX");
+        return false;
+    }
+
+    clearError("ssnError");
+    return true;
+}
+
+//Check the Address
+function checkAddress1() {
+    let value = document.getElementById("address1").value.trim();
+
+    if (value.length < 2 || value.length > 30) {
+        showError("address1Error", "2-30 chars required");
+        return false;
+    }
+
+    clearError("address1Error");
+    return true;
+}
+
+function checkAddress2() {
+    let value = document.getElementById("address2").value.trim();
+
+    if (value !== "" && (value.length < 2 || value.length > 30)) {
+        showError("address2Error", "2-30 chars if entered");
+        return false;
+    }
+
+    clearError("address2Error");
+    return true;
+}
+
+
+//Check for City
+function checkCity() {
+    let value = document.getElementById("city").value.trim();
+
+    if (!/^[A-Za-z\s'-]{2,30}$/.test(value)) {
+        showError("cityError", "2-30 letters only");
+        return false;
+    }
+
+    clearError("cityError");
+    return true;
+}
+
+
+//Check for State
+function checkState() {
+    let value = document.getElementById("state").value;
+
+    if (value === "S") {
+        showError("stateError", "Select a state");
+        return false;
+    }
+
+    clearError("stateError");
+    return true;
+}
+
+//Check for Zip Code
+function checkZip() {
+    let zip = document.getElementById("zip").value;
+
+    if (!/^\d{5}$/.test(zip)) {
+        showError("zipError", "ZIP must be 5 digits");
+        return false;
+    }
+
+    clearError("zipError");
+    return true;
+}
+
+
+//Check for Phone Number
+function checkPhone() {
+    let phone = document.getElementById("phone").value;
+
+    if (!/^\d{10}$/.test(phone)) {
+        showError("phoneError", "Phone must be 10 digits");
+        return false;
+    }
+
+    clearError("phoneError");
+    return true;
+}
+
+
+//Check for Email
+function checkEmail() {
+    let email = document.getElementById("email");
+    email.value = email.value.toLowerCase();
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+        showError("emailError", "Invalid email");
+        return false;
+    }
+
+    clearError("emailError");
+    return true;
+}
+
+//Check for User ID
+function checkUserID() {
+    let userid = document.getElementById("userid").value;
+
+    if (!/^[A-Za-z][A-Za-z0-9_-]{4,19}$/.test(userid)) {
+        showError("useridError", "5-20 chars, start with letter");
+        return false;
+    }
+
+    clearError("useridError");
+    return true;
+}
+
+
+//Check for Password and Verify
+function checkPassword() {
+    let password = document.getElementById("password").value;
+    let userid = document.getElementById("userid").value;
+
+    let errors = validatePassword(password, password, userid);
+
+    if (errors !== "") {
+        showError("passwordError", errors);
+        return false;
+    }
+
+    clearError("passwordError");
+    return true;
+}
+
+function checkPasswordMatch() {
+    let p1 = document.getElementById("password").value;
+    let p2 = document.getElementById("password2").value;
+
+    if (p1 !== p2) {
+        showError("password2Error", "Passwords do not match");
+        return false;
+    }
+
+    clearError("password2Error");
+    return true;
+}
+
+function validateForm() {
+    let valid = true;
+
+    valid &= checkFName();
+    valid &= checkMName();
+    valid &= checkLName();
+    valid &= checkDOB();
+    valid &= checkSSN();
+    valid &= checkAddress1();
+    valid &= checkAddress2();
+    valid &= checkCity();
+    valid &= checkState();
+    valid &= checkZip();
+    valid &= checkPhone();
+    valid &= checkEmail();
+    valid &= checkUserID();
+    valid &= checkPassword();
+    valid &= checkPasswordMatch();
+
+    if (valid) {
+        document.getElementById("submitBtn").style.display = "inline-block";
+        reviewForm();
+        alert("Everything looks good. You may submit.");
+    } else {
+        document.getElementById("submitBtn").style.display = "none";
+    }
+}
+
