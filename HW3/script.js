@@ -50,6 +50,27 @@ function reviewForm() {
     for (var i = 0; i < diseases.length; i++) {
         if (diseases[i].checked) diseaseList.push(diseases[i].value);  } 
 
+
+    // PASSWORD VALIDATION
+    errorMessage += validatePassword(password, password2, userid);
+
+
+    // User Id Lower Case
+    document.getElementsByName("userid")[0].value = userid.toLowerCase();
+
+    //dob
+    var today = new Date();
+    var yyyy = today.getFullYear();
+    var mm = String(today.getMonth()+1).padStart(2,'0');
+    var dd = String(today.getDate()).padStart(2,'0');
+   
+    var maxDate = yyyy + '-' + mm + '-' + dd;
+    var minDate = (yyyy-120) + '-' + mm + '-' + dd;
+
+    document.getElementsByName("dob")[0].setAttribute("max", maxDate);
+    document.getElementsByName("dob")[0].setAttribute("min", minDate);
+    
+   
     // ERROR MESSAGE
     var errorMessage = "";
 
@@ -126,27 +147,6 @@ function validatePassword(password, password2, userid) {
 
     return errors;
 }
-
-    // PASSWORD VALIDATION
-    errorMessage += validatePassword(password, password2, userid);
-
-
-    // User Id Lower Case
-    document.getElementsByName("userid")[0].value = userid.toLowerCase();
-
-    //dob
-    var today = new Date();
-    var yyyy = today.getFullYear();
-    var mm = String(today.getMonth()+1).padStart(2,'0');
-    var dd = String(today.getDate()).padStart(2,'0');
-   
-    var maxDate = yyyy + '-' + mm + '-' + dd;
-    var minDate = (yyyy-120) + '-' + mm + '-' + dd;
-
-    document.getElementsByName("dob")[0].setAttribute("max", maxDate);
-    document.getElementsByName("dob")[0].setAttribute("min", minDate);
-    
-    
 
 //Slider Value
 function updateSlider(val) {
