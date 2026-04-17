@@ -66,6 +66,67 @@ function reviewForm() {
     if (!/^\d{5}(-\d{4})?$/.test(zip))
         errorMessage += "Zip must be 5 digits or ZIP+4 (12345-6789)<br>";
 
+    // Output  
+    var output = "PLEASE REVIEW THIS INFORMATION";
+
+     if (errorMessage != "") {
+        output += "<span style='color:red;'><br>" + errorMessage + "</span><br>";
+    }
+    output += "Name: " + fname + " " + mname + " " + lname + "<br>";
+    output += "DOB: " + dob + "<br>";
+    output += "Email: " + email + "<br>";
+    output += "Phone: " + phone + "<br>";
+    output += "Address: " + address1;
+        if (address2 != "") output += ", " + address2;
+    
+    output += "<br>" + city + ", " + state + " " + zip + "<br>";
+    output += "Gender: " + gender + "<br>";
+    output += "Vaccinated: " + vaccinated + "<br>";
+    output += "Insurance: " + insurance + "<br>";
+    output += "Health Rating: " + healthscale + "<br>";
+    output += "Medical History: " + (diseaseList.length > 0 ? diseaseList.join(", ") : "None") + "<br>";
+    output += "Symptoms: " + symptoms + "<br>";
+    output += "User ID: " + userid + "<br>";
+    output += "Password: " + password + "<br>";
+
+
+    document.getElementById("reviewOutput").innerHTML = output;
+} 
+
+function validatePassword(password, password2, userid) {
+    var errors = "";
+
+    if (password !== password2) {
+        errors += "Passwords do not match<br>";
+    }
+
+    if (password.toLowerCase().includes(userid)) {
+        errors += "Password cannot contain User ID<br>";
+    }
+
+    if (!/[A-Z]/.test(password)) {
+        errors += "Must include uppercase letter<br>";
+    }
+
+    if (!/[a-z]/.test(password)) {
+        errors += "Must include lowercase letter<br>";
+    }
+
+    if (!/[0-9]/.test(password)) {
+        errors += "Must include a number<br>";
+    }
+
+    if (!/[!@#$%^&*()\-_=+\\\/><.,`~]/.test(password)) {
+        errors += "Must include special character<br>";
+    }
+
+    if (/["]/.test(password)) {
+        errors += "Cannot contain quotes<br>";
+    }
+
+    return errors;
+}
+
     // PASSWORD VALIDATION
     errorMessage += validatePassword(password, password2, userid);
 
