@@ -20,7 +20,7 @@ body {
     top: 0;
     width: 100%;
     background-color: rgb(200, 16, 46);
-    color: rgb(255, 255, 255);
+    color: white;
     text-align: center;
     padding: 20px;
     z-index: 1000;
@@ -35,7 +35,7 @@ body {
 form {
     background-color: rgb(255, 255, 255);
     width: 900px;
-    margin: 30px auto; 
+    margin: 220px auto 30px auto;
     padding: 25px;
     border-radius: 8px;
 }
