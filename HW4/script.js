@@ -6,6 +6,131 @@
 //Description: Review Form code to check all information on the Medical Form
 
 
+//Cookies
+function saveUserCookie() {
+
+    let firstName = document.getElementById("fname").value;
+
+    let remember = document.getElementById("rememberMe").checked;
+
+    if (remember) {
+
+        let today = new Date();
+
+        today.setTime(today.getTime() + (2 * 24 * 60 * 60 * 1000));
+
+        let expires = "expires=" + today.toUTCString();
+
+        document.cookie =
+            "patientName=" + firstName + ";" + expires + ";path=/";
+
+    } else {
+
+        removeUserCookie();
+    }
+}
+
+function checkUserCookie() {
+
+    let cookieText = document.cookie;
+
+    let cookieParts = cookieText.split(";");
+
+    let savedName = "";
+
+    for (let i = 0; i < cookieParts.length; i++) {
+
+        let c = cookieParts[i].trim();
+
+        if (c.indexOf("patientName=") == 0) {
+
+            savedName = c.substring(12);
+        }
+    }
+
+    if (savedName != "") {
+
+        document.getElementById("welcome").innerHTML =
+            "Welcome Back, " + savedName;
+
+        document.getElementById("fname").value = savedName;
+
+    } else {
+
+        document.getElementById("welcome").innerHTML =
+            "Welcome New User";
+    }
+}
+
+
+function removeUserCookie() {
+
+    document.cookie =
+        "patientName=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+}
+
+function startNewUser() {
+
+    removeUserCookie();
+
+    localStorage.clear();
+
+    document.querySelector("form").reset();
+
+    document.getElementById("welcome").innerHTML =
+        "Welcome New User";
+}
+
+window.onload = function () {
+
+    checkUserCookie();
+
+    loadFormData();
+}
+
+function saveFormData() {
+
+    localStorage.setItem("lname",
+        document.getElementById("lname").value);
+
+    localStorage.setItem("email",
+        document.getElementById("email").value);
+
+    localStorage.setItem("phone",
+        document.getElementById("phone").value);
+
+    localStorage.setItem("city",
+        document.getElementById("city").value);
+}
+
+function loadFormData() {
+
+    if (localStorage.getItem("lname") != null) {
+
+        document.getElementById("lname").value =
+            localStorage.getItem("lname");
+    }
+
+    if (localStorage.getItem("email") != null) {
+
+        document.getElementById("email").value =
+            localStorage.getItem("email");
+    }
+
+    if (localStorage.getItem("phone") != null) {
+
+        document.getElementById("phone").value =
+            localStorage.getItem("phone");
+    }
+
+    if (localStorage.getItem("city") != null) {
+
+        document.getElementById("city").value =
+            localStorage.getItem("city");
+    }
+}
+
+
 // REVIEW BUTTON FUNCTION
 function reviewForm() {
 
