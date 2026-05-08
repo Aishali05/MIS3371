@@ -130,22 +130,16 @@ function loadFormData() {
     }
 }
 
-//Fetch API
 function fetchHealthTip() {
-
     var outputDiv = document.getElementById("fetchOutput");
-
     outputDiv.innerHTML = "Loading motivation...";
-
-    fetch("https://api.adviceslip.com/advice")
+    fetch("https://zenquotes.io/api/random")
         .then(function(response) {
             return response.json();
         })
         .then(function(data) {
-
             var output = "<h3>Daily Motivation Tip</h3>";
-            output += "<p>" + data.slip.advice + "</p>";
-
+            output += "<p>" + data[0].q + "</p>";
             outputDiv.innerHTML = output;
         })
         .catch(function(error) {
