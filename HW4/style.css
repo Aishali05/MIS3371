@@ -16,7 +16,6 @@ body {
 
 /* Header */
 #header {
-    position: fixed;
     top: 0;
     width: 100%;
     background-color: rgb(200, 16, 46);
