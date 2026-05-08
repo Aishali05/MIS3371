@@ -137,15 +137,15 @@ function fetchHealthTip() {
 
     outputDiv.innerHTML = "Loading motivation...";
 
-    fetch("https://zenquotes.io/api/random")
+    fetch("https://api.quotable.io/random")
         .then(function(response) {
             return response.json();
         })
         .then(function(data) {
 
             var output = "<h3>Daily Motivation Tip</h3>";
-            output += "<p>" + data[0].q + "</p>";
-            output += "<p><em>- " + data[0].a + "</em></p>";
+            output += "<p>" + data.content + "</p>";
+            output += "<p><em>- " + data.author + "</em></p>";
 
             outputDiv.innerHTML = output;
         })
