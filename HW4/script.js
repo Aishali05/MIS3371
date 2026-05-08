@@ -135,24 +135,22 @@ function fetchHealthTip() {
 
     var outputDiv = document.getElementById("fetchOutput");
 
-    outputDiv.innerHTML = "Loading health tip...";
+    outputDiv.innerHTML = "Loading motivation...";
 
-    fetch("https://health.gov/myhealthfinder/api/v3/topicsearch.json?TopicId=527")
+    fetch("https://zenquotes.io/api/random")
         .then(function(response) {
             return response.json();
         })
         .then(function(data) {
 
-            var topic = data.Result.Resources.Resource[0];
-
-            var output = "<h3>Daily Health Tip</h3>";
-            output += "<p><strong>" + topic.Title + "</strong></p>";
-            output += "<p>" + topic.Sections.section[0].Content + "</p>";
+            var output = "<h3>Daily Motivation Tip</h3>";
+            output += "<p>" + data[0].q + "</p>";
+            output += "<p><em>- " + data[0].a + "</em></p>";
 
             outputDiv.innerHTML = output;
         })
         .catch(function() {
-            outputDiv.innerHTML = "Unable to load health tip.";
+            outputDiv.innerHTML = "Unable to load motivation.";
         });
 }
 
