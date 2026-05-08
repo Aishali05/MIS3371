@@ -6,7 +6,7 @@
 //Description: Review Form code to check all information on the Medical Form
 
 
-//Cookies
+//Save Cookies
 function saveUserCookie() {
 
     let firstName = document.getElementById("fname").value;
@@ -29,7 +29,7 @@ function saveUserCookie() {
         removeUserCookie();
     }
 }
-
+// Check Cookies
 function checkUserCookie() {
 
     let cookieText = document.cookie;
@@ -47,7 +47,7 @@ function checkUserCookie() {
             savedName = c.substring(12);
         }
     }
-
+//Save Cookies
     if (savedName != "") {
 
         document.getElementById("welcome").innerHTML =
@@ -62,13 +62,13 @@ function checkUserCookie() {
     }
 }
 
-
+//Remove Cookies
 function removeUserCookie() {
 
     document.cookie =
         "patientName=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 }
-
+//Reset Form
 function startNewUser() {
 
     removeUserCookie();
@@ -87,7 +87,7 @@ window.onload = function () {
 
     loadFormData();
 }
-
+//Save Form
 function saveFormData() {
 
     localStorage.setItem("lname",
@@ -102,7 +102,7 @@ function saveFormData() {
     localStorage.setItem("city",
         document.getElementById("city").value);
 }
-
+//Load Form Data
 function loadFormData() {
 
     if (localStorage.getItem("lname") != null) {
@@ -130,6 +130,29 @@ function loadFormData() {
     }
 }
 
+//Fetch API
+function fetchHealthTip() {
+
+    var outputDiv = document.getElementById("fetchOutput");
+
+    outputDiv.innerHTML = "Loading health tip...";
+
+    fetch("https://api.adviceslip.com/advice")
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+
+            var output = "<h3>Daily Health Tip</h3>";
+            output += "<p>" + data.slip.advice + "</p>";
+
+            outputDiv.innerHTML = output;
+        })
+        .catch(function() {
+
+            outputDiv.innerHTML = "Unable to load health tip. Please try again.";
+        });
+}
 
 // REVIEW BUTTON FUNCTION
 function reviewForm() {
