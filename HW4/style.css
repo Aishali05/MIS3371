@@ -16,6 +16,7 @@ body {
 
 /* Header */
 #header {
+    position: fixed;
     background-color: rgb(200, 16, 46);
     color: rgb(255, 255, 255);
     text-align: center;
