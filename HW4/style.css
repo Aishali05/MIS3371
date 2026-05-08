@@ -129,20 +129,6 @@ input[type="reset"]:hover {
     color: rgb(200, 16, 46);
 }
 
-#motivationBtn {
-    background-color: rgb(200, 16, 46);
-    color: white;
-
-    padding: 10px 20px;
-    border: none;
-    border-radius: 6px;
-
-    font-weight: bold;
-    cursor: pointer;
-
-    display: block;
-    margin: 20px auto;
-}
 
 /* Footer */
 #footer {
