@@ -113,6 +113,23 @@ input[type="reset"]:hover {
     text-align: center;
 }
 
+/*Fetch Output */
+#fetchOutput {
+    width: 60%;
+    margin: 30px auto;
+    padding: 20px;
+
+    background-color: white;
+    border-radius: 8px;
+
+    text-align: center;
+}
+
+#fetchOutput h3 {
+    color: rgb(200, 16, 46);
+}
+
+
 /* Footer */
 #footer {
     background-color: rgb(50, 50, 50);
