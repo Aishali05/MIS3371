@@ -137,20 +137,22 @@ function fetchHealthTip() {
 
     outputDiv.innerHTML = "Loading health tip...";
 
-    fetch("https://api.adviceslip.com/advice")
+    fetch("https://health.gov/myhealthfinder/api/v3/topicsearch.json?TopicId=527")
         .then(function(response) {
             return response.json();
         })
         .then(function(data) {
 
+            var topic = data.Result.Resources.Resource[0];
+
             var output = "<h3>Daily Health Tip</h3>";
-            output += "<p>" + data.slip.advice + "</p>";
+            output += "<p><strong>" + topic.Title + "</strong></p>";
+            output += "<p>" + topic.Sections.section[0].Content + "</p>";
 
             outputDiv.innerHTML = output;
         })
         .catch(function() {
-
-            outputDiv.innerHTML = "Unable to load health tip. Please try again.";
+            outputDiv.innerHTML = "Unable to load health tip.";
         });
 }
 
