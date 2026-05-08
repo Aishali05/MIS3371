@@ -213,7 +213,7 @@ Description: Patient Registration Form for hospitals
 <!-- Email + User ID -->
         <tr>
             <td>
-                <label label class="line" for="email">Email:</label>
+                <label class="line" for="email">Email:</label>
                 <input type="email" id="email" name="email"
                     oninput="checkEmail()"
                     onblur="checkEmail()">
@@ -323,20 +323,18 @@ Description: Patient Registration Form for hospitals
                 <input type="button" value="Validate" onclick="validateForm()">
                 <input type="reset" value="Clear">
                 <input type="submit" id="submitBtn" value="Submit">
-            </td>
-        </tr>
-    
-    <label>
-        <input type="checkbox" id="rememberMe" checked>Remember Me
-    </label>
-
-    <button type="button" onclick="newUser()">
-        Not You? Start Over
-    </button>
+                <input type="checkbox" id="rememberMe" checked>Remember Me
+               
+         <button type="button" onclick="startNewUser()"> Not You? Start Over
+        
+        </button>
 
     <br><br>
-    
-    
+            
+            
+            </td>
+        </tr>
+       
     </table>
 
         
