@@ -137,19 +137,19 @@ function fetchHealthTip() {
 
     outputDiv.innerHTML = "Loading motivation...";
 
-    fetch("https://api.quotable.io/random")
+    fetch("https://api.adviceslip.com/advice")
         .then(function(response) {
             return response.json();
         })
         .then(function(data) {
 
             var output = "<h3>Daily Motivation Tip</h3>";
-            output += "<p>" + data.content + "</p>";
-            output += "<p><em>- " + data.author + "</em></p>";
+            output += "<p>" + data.slip.advice + "</p>";
 
             outputDiv.innerHTML = output;
         })
-        .catch(function() {
+        .catch(function(error) {
+            console.log(error);
             outputDiv.innerHTML = "Unable to load motivation.";
         });
 }
