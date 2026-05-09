@@ -133,13 +133,12 @@ function loadFormData() {
 function fetchHealthTip() {
     var outputDiv = document.getElementById("fetchOutput");
     outputDiv.innerHTML = "Loading motivation...";
-    fetch("https://zenquotes.io/api/random")
-        .then(function(response) {
-            return response.json();
-        })
+    fetch("https://api.quotable.io/random?tags=motivational|inspirational")
+        .then(function(response) { return response.json(); })
         .then(function(data) {
             var output = "<h3>Daily Motivation Tip</h3>";
-            output += "<p>" + data[0].q + "</p>";
+            output += "<p>" + data.content + "</p>";
+            output += "<small>— " + data.author + "</small>";
             outputDiv.innerHTML = output;
         })
         .catch(function(error) {
@@ -147,6 +146,7 @@ function fetchHealthTip() {
             outputDiv.innerHTML = "Unable to load motivation.";
         });
 }
+
 
 // REVIEW BUTTON FUNCTION
 function reviewForm() {
