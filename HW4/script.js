@@ -79,14 +79,22 @@ function startNewUser() {
 
     document.getElementById("welcome").innerHTML =
         "Welcome New User";
-}
+    }
 
-window.onload = function () {
+    window.onload = function () {
+    
+    let fields = document.querySelectorAll("input, textarea, select");
 
+    fields.forEach(function(field) {
+
+    field.addEventListener("blur", saveFormData);
+
+    });
     checkUserCookie();
 
     loadFormData();
 }
+
 //Save Form
 function saveFormData() {
 
@@ -101,6 +109,18 @@ function saveFormData() {
 
     localStorage.setItem("city",
         document.getElementById("city").value);
+    
+    localStorage.setItem("address1",
+        document.getElementById("address1").value);
+    
+    localStorage.setItem("zip",
+        document.getElementById("zip").value);
+
+    localStorage.setItem("state",
+        document.getElementById("state").value);
+
+    localStorage.setItem("symptoms",
+        document.getElementById("symptoms").value);
 }
 //Load Form Data
 function loadFormData() {
@@ -128,11 +148,38 @@ function loadFormData() {
         document.getElementById("city").value =
             localStorage.getItem("city");
     }
+
+    if (localStorage.getItem("address1") != null) {
+
+        document.getElementById("address1").value =
+            localStorage.getItem("address1");
+    }
+
+    if (localStorage.getItem("zip") != null) {
+
+        document.getElementById("zip").value =
+            localStorage.getItem("zip");
+    }
+
+    if (localStorage.getItem("state") != null) {
+
+        document.getElementById("state").value =
+            localStorage.getItem("state");
+    }
+
+    if (localStorage.getItem("symptoms") != null) {
+
+        document.getElementById("symptoms").value =
+            localStorage.getItem("symptoms");
+}
+
 }
 
 function fetchHealthTip() {
+    
     var outputDiv = document.getElementById("fetchOutput");
-    outputDiv.innerHTML = "Loading motivation...";
+     outputDiv.innerHTML = "Loading motivation...";
+    
     fetch("https://api.quotable.io/random?tags=motivational|inspirational")
         .then(function(response) { return response.json(); })
         .then(function(data) {
@@ -552,6 +599,7 @@ function validateForm() {
     valid &= checkPasswordMatch();
 
     if (valid) {
+        saveUserCookie();
         document.getElementById("submitBtn").style.display = "inline-block";
         reviewForm();
         alert("Everything looks good. You may submit.");
