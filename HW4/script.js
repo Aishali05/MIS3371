@@ -176,21 +176,23 @@ function loadFormData() {
 }
 
 function fetchHealthTip() {
-    
     var outputDiv = document.getElementById("fetchOutput");
-     outputDiv.innerHTML = "Loading motivation...";
-    
-    fetch("https://api.quotable.io/random?tags=motivational|inspirational")
-        .then(function(response) { return response.json(); })
+    outputDiv.innerHTML = "Loading health tip...";
+    fetch("https://api.adviceslip.com/advice")
+        .then(function(response) {
+            return response.json();
+        })
         .then(function(data) {
-            var output = "<h3>Daily Motivation Tip</h3>";
-            output += "<p>" + data.content + "</p>";
-            output += "<small>— " + data.author + "</small>";
+            var output = "<h3>Health & Wellness Tip</h3>";
+            output += "<p>" + data.slip.advice + "</p>"
+            output += "<small>Please consult your healthcare provider for medical concerns.</small>";
             outputDiv.innerHTML = output;
         })
         .catch(function(error) {
+
             console.log(error);
-            outputDiv.innerHTML = "Unable to load motivation.";
+
+            outputDiv.innerHTML = "Unable to load health tip.";
         });
 }
 
